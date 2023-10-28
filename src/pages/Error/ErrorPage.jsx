@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { ErrorMessage } from "../../components/Components/StyledComponents";
 import { MyTimer } from "./Timer";
 import { useError } from "../../context/ErrorContext";
 import { useNavigate } from "react-router-dom";
 import { usePage } from "../../context/PageContext";
+import { ErrorMessage } from "../../components/StyledComponents";
 
 const ErrorPage = () => {
   const navigate = useNavigate();

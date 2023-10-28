@@ -1,4 +1,4 @@
-import { StyledSelect } from "../Components/StyledComponents";
+import { StyledSelect } from "../StyledComponents";
 
 const DropDown = ({
   onChangeFunction,

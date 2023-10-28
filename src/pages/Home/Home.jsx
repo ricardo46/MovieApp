@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { usePage } from "../../context/PageContext";
 import Movies from "../../components/moviesComponent/Movies";
-import SearchMoviesForm from "../../components/moviesComponent/SearchForm";
+import SearchMoviesForm from "../../components/moviesComponent/SearchMoviesForm";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);

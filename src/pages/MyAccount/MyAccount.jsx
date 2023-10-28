@@ -2,9 +2,9 @@ import { useEffect, useInsertionEffect, useState } from "react";
 import { usePage } from "../../context/PageContext";
 import { useUser } from "../../context/UserContext";
 import Movies from "../../components/moviesComponent/Movies";
-import { SectionContainer } from "../../components/Components/StyledComponents";
-import SearchMoviesForm from "../../components/moviesComponent/SearchForm";
+import SearchMoviesForm from "../../components/moviesComponent/SearchMoviesForm";
 import DropDown from "../../components/dropDown/DropDown";
+import { SectionContainer } from "../../components/StyledComponents";
 
 const MyAccount = () => {
   const { user, setUser, auth, setAuth } = useUser();

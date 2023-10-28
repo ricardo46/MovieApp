@@ -1,14 +1,14 @@
 import {
   FormMessageStyledContainer,
   StyledForm,
-} from "../moviesComponent/SearchFormStyledComponents";
-import { StyledLoadingAnimation } from "../Components/Animations";
-import { FormMessage } from "../Components/StyledComponents";
+} from "../moviesComponent/SearchMoviesFormStyledComponents";
+import { StyledLoadingAnimation } from "../Animations";
 import {
   ButtonAndInputContainer,
   OneInputFormButton,
   OneInputFormInput,
 } from "./OneInputFormStyledComponents";
+import { FormMessage } from "../StyledComponents";
 
 const OneInputForm = ({
   //   updateMovies,

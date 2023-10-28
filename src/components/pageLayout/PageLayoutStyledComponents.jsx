@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { StyledLink } from "../Components/StyledComponents";
+import { StyledLink } from "../StyledComponents";
 
 const PageContainer = styled.div`
   margin: 0;
@@ -50,7 +50,7 @@ const PageHeader = styled.h3`
   color: white;
   padding: 0;
   margin: 0;
-  font-size:1rem;
+  font-size: 1rem;
   font-weight: 300;
 `;
 

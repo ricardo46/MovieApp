@@ -1,8 +1,5 @@
 import styled from "@emotion/styled";
-import {
-  StyledButton,
-  StyledInput,
-} from "../Components/StyledComponents";
+import { StyledButton, StyledInput } from "../StyledComponents";
 
 const StyledForm = styled.form`
   /* z-index: 5; */
@@ -15,7 +12,6 @@ const StyledForm = styled.form`
   /* position: fixed;
   top: 1rem; */
   padding: 0.5rem 0 0.5rem 0;
-
 `;
 
 const SearchMoviesStyledButton = styled(StyledButton)`

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { StyledButton, StyledInput } from "../Components/StyledComponents";
+import { StyledButton, StyledInput } from "../StyledComponents";
 
 const OneInputFormButton = styled(StyledButton)`
   border-radius: 1rem 0 0 1rem;

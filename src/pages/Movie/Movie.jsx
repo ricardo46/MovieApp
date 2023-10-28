@@ -12,7 +12,7 @@ import {
   MoviePageContainer,
 } from "./MoviePageStyledComponents";
 import { useError } from "../../context/ErrorContext";
-import { SectionContainer } from "../../components/Components/StyledComponents";
+import { SectionContainer } from "../../components/StyledComponents";
 
 const useMovies = ({ movieId, setMovie }) => {
   const { error, setError } = useError();
