@@ -13,7 +13,6 @@ const Home = () => {
     setSubPageData(() => ({ name: "Home Page" }));
   }, []);
 
-  
   return (
     <>
         <SearchMoviesForm updateMovies={updateMovies} />
