@@ -1,10 +1,10 @@
 import { useEffect, useInsertionEffect, useState } from "react";
 import { usePage } from "../../context/PageContext";
 import { useUser } from "../../context/UserContext";
-import Movies from "../moviesComponents/Movies";
-import DropDown from "../Components/DropDown";
-import { SectionContainer } from "../Components/StyledComponents";
-import SearchMoviesForm from "../moviesComponents/SearchForm";
+import Movies from "../../components/moviesComponent/Movies";
+import { SectionContainer } from "../../components/Components/StyledComponents";
+import SearchMoviesForm from "../../components/moviesComponent/SearchForm";
+import DropDown from "../../components/dropDown/DropDown";
 
 const MyAccount = () => {
   const { user, setUser, auth, setAuth } = useUser();
@@ -45,8 +45,8 @@ const MyAccount = () => {
         <Movies movies={movieList} size="small" />
       </SectionContainer>
       <SectionContainer>
-      <SearchMoviesForm updateMovies={updateMovies} />
-      <Movies movies={movies} />
+        <SearchMoviesForm updateMovies={updateMovies} />
+        <Movies movies={movies} />
       </SectionContainer>
     </>
   );

@@ -6,7 +6,6 @@ import {
   StyledInfo,
 } from "./MovieCardStyledComponent";
 const MovieCard = ({ movie, size }) => {
-  
   return (
     <MovieContainer size={size}>
       <CardImageContainer size={size}>

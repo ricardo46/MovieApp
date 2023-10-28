@@ -1,7 +1,7 @@
-import MovieCard from "./MovieCardComponent";
+import MovieCard from "../movieCardComponent/MovieCardComponent";
 import { MovieLink, MoviesList } from "./MoviesStyledComponents";
 
-const Movies = ({ movies,displayType }) => {
+const Movies = ({ movies, displayType }) => {
   console.log("movies", movies);
   return (
     <>

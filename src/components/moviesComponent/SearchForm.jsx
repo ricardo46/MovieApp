@@ -4,7 +4,7 @@ import {
   requestWasSuccessful,
 } from "../../utils/apiUtils";
 
-import OneInputForm from "../OneInputForm/OneInputForm";
+import OneInputForm from "../oneInputForm/OneInputForm";
 
 const SearchMoviesForm = ({ updateMovies }) => {
   const [movieName, setMovieName] = useState("");

@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useUser } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import { logUserInAPI, requestWasSuccessful } from "../../utils/apiUtils";
-import { StyledLoadingAnimation } from "../Components/Animations";
-import { FormMessage } from "../Components/StyledComponents";
-import { StyledForm } from "../moviesComponents/SearchFormStyledComponents";
+import { StyledLoadingAnimation } from "../../components/Components/Animations";
+import { FormMessage } from "../../components/Components/StyledComponents";
+import { StyledForm } from "../../components/moviesComponent/SearchFormStyledComponents";
 
 const LoginForm = () => {
   const navigate = useNavigate();

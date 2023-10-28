@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { usePage } from "../../context/PageContext";
+import { ErrorMessage } from "../../components/Components/StyledComponents";
+import { MyTimer } from "./Timer";
 import { useError } from "../../context/ErrorContext";
 import { useNavigate } from "react-router-dom";
-import { MyTimer } from "./Timer";
-import { ErrorMessage } from "../Components/StyledComponents";
+import { usePage } from "../../context/PageContext";
 
-const ErrorComponent = () => {
+const ErrorPage = () => {
   const navigate = useNavigate();
   const [count, setCount] = useState(20);
 
@@ -40,4 +40,4 @@ const ErrorComponent = () => {
   );
 };
 
-export default ErrorComponent;
+export default ErrorPage;

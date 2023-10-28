@@ -36,7 +36,7 @@ const StyledButton = styled.button`
 
 `;
 
-const GeneralStyledSelect = styled.select`
+const StyledSelect = styled.select`
   padding: 0 0 0 0.5rem;
   height: 2rem;
   box-sizing: border-box;
@@ -69,5 +69,5 @@ export {
   StyledButton,
   StyledLink,
   SectionContainer,
-  GeneralStyledSelect,
+  StyledSelect,
 };

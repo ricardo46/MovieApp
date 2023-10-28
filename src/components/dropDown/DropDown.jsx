@@ -1,4 +1,4 @@
-import { GeneralStyledSelect } from "./StyledComponents";
+import { StyledSelect } from "../Components/StyledComponents";
 
 const DropDown = ({
   onChangeFunction,
@@ -10,14 +10,14 @@ const DropDown = ({
   console.log("drop list", list);
   return (
     <>
-      <GeneralStyledSelect onChange={onChangeFunction} defaultValue="default">
+      <StyledSelect onChange={onChangeFunction} defaultValue="default">
         <option value="default">{defaultDropDownValue}</option>
         {list.map((list) => (
           <option key={list[listIterator]} value={list[listIterator]}>
             {list[itemPropertyToShow]}
           </option>
         ))}
-      </GeneralStyledSelect>
+      </StyledSelect>
     </>
   );
 };

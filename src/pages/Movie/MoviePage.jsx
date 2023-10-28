@@ -4,15 +4,15 @@ import {
   getMovieDataFromAPI,
   requestWasSuccessful,
 } from "../../utils/apiUtils";
-import MovieCard from "../moviesComponents/MovieCardComponent";
+import MovieCard from "../../components/movieCardComponent/MovieCardComponent";
 import { usePage } from "../../context/PageContext";
-import Movies from "../moviesComponents/Movies";
+import Movies from "../../components/moviesComponent/Movies";
 import {
   MoviesContainer,
   MoviePageContainer,
 } from "./MoviePageStyledComponents";
 import { useError } from "../../context/ErrorContext";
-import { SectionContainer } from "../Components/StyledComponents";
+import { SectionContainer } from "../../components/Components/StyledComponents";
 
 const useMovies = ({ movieId, setMovie }) => {
   const { error, setError } = useError();
@@ -61,7 +61,7 @@ const MoviePage = () => {
         <MoviesContainer>
           <Movies movies={movies} />
         </MoviesContainer>
-        </SectionContainer>
+      </SectionContainer>
     </>
   );
 };

@@ -1,7 +1,7 @@
 import {
   FormMessageStyledContainer,
   StyledForm,
-} from "../moviesComponents/SearchFormStyledComponents";
+} from "../moviesComponent/SearchFormStyledComponents";
 import { StyledLoadingAnimation } from "../Components/Animations";
 import { FormMessage } from "../Components/StyledComponents";
 import {

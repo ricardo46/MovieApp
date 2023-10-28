@@ -17,12 +17,7 @@ const StyledForm = styled.form`
   padding: 0.5rem 0 0.5rem 0;
 
 `;
-// const ButtonAndInputContainer = styled.div`
-//   display: flex;
-//   width: 100%;
-//   max-width: 1000px;
-//   padding: 0 1rem 0;
-// `;
+
 const SearchMoviesStyledButton = styled(StyledButton)`
   background-color: transparent;
   border-radius: 1rem 0 0 1rem;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { usePage } from "../../context/PageContext";
-import Movies from "../moviesComponents/Movies";
-import SearchMoviesForm from "../moviesComponents/SearchForm";
+import Movies from "../../components/moviesComponent/Movies";
+import SearchMoviesForm from "../../components/moviesComponent/SearchForm";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -15,8 +15,8 @@ const Home = () => {
 
   return (
     <>
-        <SearchMoviesForm updateMovies={updateMovies} />
-      <Movies movies={movies} displayType={'grid'} />
+      <SearchMoviesForm updateMovies={updateMovies} />
+      <Movies movies={movies} displayType={"grid"} />
     </>
   );
 };
