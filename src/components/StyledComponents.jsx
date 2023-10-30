@@ -5,6 +5,9 @@ const FormMessage = styled.p`
   color: #ff8000;
   font-size: 0.6rem;
   margin: 0;
+  white-space: pre;
+  /* word-wrap: break-word; */
+  /* height: 3rem; */
 `;
 
 const ErrorMessage = styled.h3`

@@ -44,15 +44,14 @@ const PageLayout = () => {
   const subPageName = subPageData.name;
 
   const getUser = async () => {
-    const authToken = getLocalStorageItem("authToken");
+    try {
+      const authToken = getLocalStorageItem("authToken");
 
-    const response = await getUserInAPI(authToken);
-    setApiResponse((prev) => ({
-      ...prev,
-      responseReceived: true,
-      status: response.status,
-    }));
-    if (requestWasSuccessful(response)) {
+      const response = await getUserInAPI(authToken);
+      setApiResponse((prev) => ({
+        ...prev,
+        responseReceived: true,
+      }));
       const user = response.data;
 
       setUser({
@@ -60,20 +59,28 @@ const PageLayout = () => {
         name: user.name,
         email: user.email,
         movieLists: user.movieLists,
-        
       });
 
       setAuth(true);
-      console.log("User is logged in!", "Status:", response.status);
-    } else if (responseStatusIsRequestsLimit(response)) {
-      setError({
-        message: response.response.data.message,
-        status: response.response.status,
-      });
-      navigate("/errorPage");
-    } else {
-      console.log("Token not valid", response);
-      localStorage.clear();
+      console.log("User is logged in!");
+    } catch (err) {
+      console.log("User not logged in!");
+
+      if (responseStatusIsRequestsLimit(err)) {
+        setError({
+          message: err.response.data.message,
+        });
+        navigate("/errorPage");
+      } else {
+        console.log("Token not valid", err);
+        localStorage.clear();
+      }
+
+      setApiResponse((prev) => ({
+        ...prev,
+        responseReceived: true,
+        // status: err.status,
+      }));
     }
   };
 

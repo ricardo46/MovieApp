@@ -7,16 +7,18 @@ const DropDown = ({
   listIterator,
   itemPropertyToShow,
 }) => {
-  console.log("drop list", list);
   return (
     <>
       <StyledSelect onChange={onChangeFunction} defaultValue="default">
         <option value="default">{defaultDropDownValue}</option>
-        {list.map((list) => (
-          <option key={list[listIterator]} value={list[listIterator]}>
-            {list[itemPropertyToShow]}
-          </option>
-        ))}
+        {list.map((list) => {
+          // console.log('list.id',list)
+          return (
+            <option key={list[listIterator]} value={list[listIterator]}>
+              {list[itemPropertyToShow]}
+            </option>
+          );
+        })}
       </StyledSelect>
     </>
   );

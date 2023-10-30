@@ -7,6 +7,7 @@ const OneInputFormButton = styled(StyledButton)`
 
 const OneInputFormInput = styled(StyledInput)`
   border-radius: 0 1rem 1rem 0;
+  color: white;
 `;
 
 const ButtonAndInputContainer = styled.div`

@@ -1,37 +1,23 @@
 import axios from "axios";
-import { setLocalStorageItem } from "./localStorageUtils";
+import { getLocalStorageItem, setLocalStorageItem } from "./localStorageUtils";
 
 const logUserInAPI = async (email, password) => {
-  console.log("logUserInAPI request!!!");
-  try {
-    const loginResponse = await axios.post(
-      "https://x8ki-letl-twmt.n7.xano.io/api:E95hPK0b/auth/login",
-      { email, password } //pass: aaa111222
-    );
-    console.log("loginResponse", loginResponse);
-    const authToken = loginResponse.data.authToken;
-    setLocalStorageItem("authToken", authToken);
-
-    return loginResponse;
-  } catch (err) {
-    console.log("logUserInAPI error", err);
-    return err;
-  }
+  // console.log("logUserInAPI request!!!");
+  return await axios.post(
+    "https://x8ki-letl-twmt.n7.xano.io/api:E95hPK0b/auth/login",
+    { email, password } //pass: aaa111222
+  );
 };
 
 const getUserInAPI = async (authToken) => {
-  console.log("getUserInAPI request!!!");
+  // console.log("getUserInAPI request!!!");
 
-  try {
-    const response = await axios.get(
-      "https://x8ki-letl-twmt.n7.xano.io/api:E95hPK0b/auth/me",
-      { headers: { Authorization: "Bearer " + authToken } }
-    );
+  const response = await axios.get(
+    "https://x8ki-letl-twmt.n7.xano.io/api:E95hPK0b/auth/me",
+    { headers: { Authorization: "Bearer " + authToken } }
+  );
 
-    return response;
-  } catch (err) {
-    return err;
-  }
+  return response;
 };
 
 const getMovieDataFromAPI = async (movieId) => {
@@ -67,7 +53,7 @@ const getFilteredMovies = (movieName) => {
       params: { searchTitle: movieName },
     }
   );
-  console.log("getFilteredMovies request!!!");
+  // console.log("getFilteredMovies request!!!");
   return response;
 };
 
@@ -100,6 +86,43 @@ const getMoviesDataFromAPI = async (movieName) => {
   }
 };
 
+const postMoviesList = async (name, list) => {
+  const authToken = getLocalStorageItem("authToken");
+
+  try {
+    const response = await axios.post(
+      "https://x8ki-letl-twmt.n7.xano.io/api:E95hPK0b/movielist",
+      {
+        name,
+        list,
+      },
+      { headers: { Authorization: `Bearer ${authToken}` } }
+    );
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
+const postUserList = async (user_id, movieLists) => {
+  const authToken = getLocalStorageItem("authToken");
+console.log('postUserList',movieLists)
+  try {
+    const response = await axios.post(
+      `https://x8ki-letl-twmt.n7.xano.io/api:E95hPK0b/user/${user_id}`,
+
+      {
+        movieLists,
+      }
+    );
+    // console.log("response", response);
+    return response;
+  } catch (error) {
+    // console.log("error", error);
+    return error;
+  }
+};
+
 export {
   getFilteredMovies,
   getMovie,
@@ -110,4 +133,6 @@ export {
   responseStatusIsRequestsLimit,
   getMovieDataFromAPI,
   getMoviesDataFromAPI,
+  postMoviesList,
+  postUserList,
 };

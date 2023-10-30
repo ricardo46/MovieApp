@@ -9,31 +9,52 @@ import {
   OneInputFormInput,
 } from "./OneInputFormStyledComponents";
 import { FormMessage } from "../StyledComponents";
+import { useState } from "react";
 
 const OneInputForm = ({
   //   updateMovies,
-  onSearchSubmit,
+  onFormSubmit,
   inputName,
-  value,
-  onValueChange,
   submitRequest,
+  submitButtonName,
+  inputValue,
+  setInputValue,
 }) => {
+  // const [formMessage,setFormMessage]=useState('')
+
+  const onValueChange = (e) => {
+    // console.log("Search movies e.target", e.target.value);
+
+    setInputValue(e.target.value);
+  };
+
+  const clearInput = (e) => {
+
+    e.preventDefault();
+    setInputValue("");
+
+
+  };
+
   return (
     <>
-      <StyledForm onSubmit={onSearchSubmit}>
+      <StyledForm onSubmit={(e)=>{clearInput(e);onFormSubmit(e)}}>
         <ButtonAndInputContainer>
-          <OneInputFormButton>Search</OneInputFormButton>
+          <OneInputFormButton>{submitButtonName}</OneInputFormButton>
           <OneInputFormInput
             type="text"
             name={inputName}
-            value={value}
+            value={inputValue}
             onChange={onValueChange}
           />
         </ButtonAndInputContainer>
       </StyledForm>
 
       <FormMessageStyledContainer>
-        {submitRequest.error && (
+        {submitRequest?.message && (
+          <FormMessage>{submitRequest.message}</FormMessage>
+        )}
+        {submitRequest?.errorMessage && (
           <FormMessage>{submitRequest.errorMessage}</FormMessage>
         )}
 

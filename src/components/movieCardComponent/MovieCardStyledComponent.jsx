@@ -29,8 +29,7 @@ const MovieContainer = styled.li`
   height: ${({ size }) => (size == "small" ? "281px" : "")};
   display: ${({ size }) => (size == "small" ? "block" : "flex")};
   width: ${({ size }) => (size == "small" ? "100%" : "")};
-  border: ${({ size }) =>
-    size == "small" ? "3px solid blue" : ""};
+  border: ${({ size }) => (size == "small" ? "3px solid blue" : "")};
   /* align-items: center; */
   justify-content: center;
   box-sizing: border-box;
@@ -38,7 +37,6 @@ const MovieContainer = styled.li`
   overflow-y: hidden;
   align-self: center;
   /* padding: ${({ size }) => (size == "small" ? "" : "1rem")}; */
-
 `;
 
 const CardImage = styled.img`
@@ -48,7 +46,21 @@ const CardImage = styled.img`
 `;
 const CardImageContainer = styled.div`
   height: ${({ size }) => (size == "small" ? "210px" : "100%")};
-  
+  position: relative;
+`;
+
+const FavoriteSymbolStyled = styled.div`
+  /* height: 1rem;
+  width: 1rem; */
+  color: red;
+  position: absolute;
+  top: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  border: solid red 1px;
+  line-height: 2rem;
+width: 2rem;
+z-index: 150;
 `;
 
 export {
@@ -57,4 +69,5 @@ export {
   MovieContainer,
   CardImage,
   CardImageContainer,
+  FavoriteSymbolStyled,
 };

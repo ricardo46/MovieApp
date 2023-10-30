@@ -1,19 +1,25 @@
 import { useEffect, useInsertionEffect, useState } from "react";
 import { usePage } from "../../context/PageContext";
-import { useUser } from "../../context/UserContext";
 import Movies from "../../components/moviesComponent/Movies";
 import SearchMoviesForm from "../../components/moviesComponent/SearchMoviesForm";
-import DropDown from "../../components/dropDown/DropDown";
 import { SectionContainer } from "../../components/StyledComponents";
+import UserLists from "../../components/userLists/UserLists";
+import FavoriteSymbol from "../../components/movieCardComponent/FavoriteSymbol";
+import { useUser } from "../../context/UserContext";
 
 const MyAccount = () => {
-  const { user, setUser, auth, setAuth } = useUser();
   const { subPageData, setSubPageData } = usePage();
-  const [movieList, setMovieList] = useState([]);
   const [movies, setMovies] = useState([]);
   const updateMovies = (newMovies) => {
     setMovies(newMovies);
   };
+
+  const { user, setUser } = useUser();
+
+  const movieLists = user.movieLists;
+
+  const [movieList, setMovieList] = useState([]);
+  const [movieListId, setMovieListId] = useState(null);
 
   useEffect(() => {
     setSubPageData(() => ({
@@ -23,30 +29,34 @@ const MyAccount = () => {
     }));
   }, []);
 
-  // console.log('user.movieLists',user.movieLists)
-  const movieLists = user.movieLists;
-
-  const onListChange = (e) => {
-    const list = movieLists.find((el) => el.movielist_id == e.target.value);
-    // console.log("list movieList", list);
-    setMovieList(list.list);
+  const addFavoriteMovie = (e, movie) => {
+    e.preventDefault();
+    console.log("Current list", movieListId, movieList);
+    if (movieListId) {
+      console.log("This movie will be added to the list", movie);
+    } else {
+      console.log("No list selected! To add a movie select a list.");
+    }
   };
 
   return (
     <>
       <SectionContainer>
-        <DropDown
-          onChangeFunction={onListChange}
-          defaultDropDownValue={`${user.name} movie lists`}
-          list={movieLists}
-          listIterator={"movielist_id"}
-          itemPropertyToShow={"name"}
+        <UserLists
+          setMovieList={setMovieList}
+          setMovieListId={setMovieListId}
+          movieList={movieList}
         />
+
         <Movies movies={movieList} size="small" />
       </SectionContainer>
       <SectionContainer>
         <SearchMoviesForm updateMovies={updateMovies} />
-        <Movies movies={movies} />
+        <Movies
+          movies={movies}
+          favoriteSymbol={<FavoriteSymbol />}
+          addFavoriteMovie={addFavoriteMovie}
+        />
       </SectionContainer>
     </>
   );

@@ -6,13 +6,10 @@ import {
 } from "../../utils/apiUtils";
 import MovieCard from "../../components/movieCardComponent/MovieCardComponent";
 import { usePage } from "../../context/PageContext";
-import Movies from "../../components/moviesComponent/Movies";
-import {
-  MoviesContainer,
-  MoviePageContainer,
-} from "./MoviePageStyledComponents";
+import { MoviesContainer } from "./MoviePageStyledComponents";
 import { useError } from "../../context/ErrorContext";
 import { SectionContainer } from "../../components/StyledComponents";
+import Movies from "../../components/moviesComponent/Movies";
 
 const useMovies = ({ movieId, setMovie }) => {
   const { error, setError } = useError();
