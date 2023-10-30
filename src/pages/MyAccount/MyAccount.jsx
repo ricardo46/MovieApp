@@ -6,6 +6,7 @@ import { SectionContainer } from "../../components/StyledComponents";
 import UserLists from "../../components/userLists/UserLists";
 import FavoriteSymbol from "../../components/movieCardComponent/FavoriteSymbol";
 import { useUser } from "../../context/UserContext";
+import { movieExistsInList } from "./utils";
 
 const MyAccount = () => {
   const { subPageData, setSubPageData } = usePage();
@@ -19,7 +20,7 @@ const MyAccount = () => {
   const movieLists = user.movieLists;
 
   const [movieList, setMovieList] = useState([]);
-  const [movieListId, setMovieListId] = useState(null);
+  const [movieListObj, setMovieListObj] = useState({});
 
   useEffect(() => {
     setSubPageData(() => ({
@@ -31,9 +32,16 @@ const MyAccount = () => {
 
   const addFavoriteMovie = (e, movie) => {
     e.preventDefault();
-    console.log("Current list", movieListId, movieList);
-    if (movieListId) {
+    // console.log("Current list", movieListId, movieList);
+    if (movieListObj.id) {
       console.log("This movie will be added to the list", movie);
+      console.log("movieListObj", movieListObj);
+
+      if (movieExistsInList(movie, movieListObj.list)) {
+        console.log(
+          `movie ${movie.title} already exists in ${movieListObj.name}`
+        );
+      }
     } else {
       console.log("No list selected! To add a movie select a list.");
     }
@@ -44,7 +52,7 @@ const MyAccount = () => {
       <SectionContainer>
         <UserLists
           setMovieList={setMovieList}
-          setMovieListId={setMovieListId}
+          setMovieListObj={setMovieListObj}
           movieList={movieList}
         />
 

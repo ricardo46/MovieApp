@@ -7,9 +7,14 @@ import {
   postUserList,
   requestWasSuccessful,
 } from "../../utils/apiUtils";
-import { getListNamesArray, listNameExists, stringIsEmpty, validNewListName } from "./userListsUtils";
+import {
+  getListNamesArray,
+  listNameExists,
+  stringIsEmpty,
+  validNewListName,
+} from "./userListsUtils";
 
-const UserLists = ({ setMovieList ,setMovieListId}) => {
+const UserLists = ({ setMovieList, setMovieListObj }) => {
   const { user, setUser } = useUser();
 
   const movieLists = user.movieLists;
@@ -23,7 +28,8 @@ const UserLists = ({ setMovieList ,setMovieListId}) => {
   const onListChange = (e) => {
     const list = movieLists.find((el) => el.id == e.target.value);
     list ? setMovieList(list.list) : setMovieList([]);
-    list ? setMovieListId(list.id) :setMovieListId(null)
+    // list ? console.log('actual list obj',list) : console.log('No actual list obj')
+    list ? setMovieListObj(list) : setMovieListObj({});
   };
 
   const onNewListSubmit = async (e) => {
@@ -32,7 +38,6 @@ const UserLists = ({ setMovieList ,setMovieListId}) => {
     let submitErrorMessage = null;
 
     if (validNewListName(inputValue, movieLists)) {
-      
       setSubmitRequest({
         isLoading: true,
       });
@@ -55,13 +60,16 @@ const UserLists = ({ setMovieList ,setMovieListId}) => {
         });
       }
       const userId = user.id;
-      console.log('movieLists',movieLists)
+      console.log("movieLists", movieLists);
       const userPreviousListsIds = movieLists.map((list) => ({
         movielist_id: list.movielist_id,
       }));
       const newListId = postMoviesListResponse.data.id;
 
-      const movieListsIds = [...userPreviousListsIds, { movielist_id: newListId }];
+      const movieListsIds = [
+        ...userPreviousListsIds,
+        { movielist_id: newListId },
+      ];
       const postUserListResponse = await postUserList(userId, movieListsIds);
 
       if (requestWasSuccessful(postUserListResponse)) {
