@@ -19,7 +19,6 @@ const MyAccount = () => {
 
   const movieLists = user.movieLists;
 
-  const [movieList, setMovieList] = useState([]);
   const [movieListObj, setMovieListObj] = useState({});
 
   useEffect(() => {
@@ -32,7 +31,7 @@ const MyAccount = () => {
 
   const addFavoriteMovie = (e, movie) => {
     e.preventDefault();
-    // console.log("Current list", movieListId, movieList);
+    console.log("Current list", movieListObj);
     if (movieListObj.id) {
       console.log("This movie will be added to the list", movie);
       console.log("movieListObj", movieListObj);
@@ -51,12 +50,11 @@ const MyAccount = () => {
     <>
       <SectionContainer>
         <UserLists
-          setMovieList={setMovieList}
           setMovieListObj={setMovieListObj}
-          movieList={movieList}
+          // movieList={movieList}
         />
 
-        <Movies movies={movieList} size="small" />
+        <Movies movies={movieListObj.list} size="small" />
       </SectionContainer>
       <SectionContainer>
         <SearchMoviesForm updateMovies={updateMovies} />

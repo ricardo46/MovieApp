@@ -3,8 +3,7 @@ import {
   getMoviesDataFromAPI,
   requestWasSuccessful,
 } from "../../utils/apiUtils";
-
-import OneInputForm from "../oneInputForm/OneInputForm";
+import MultipleInputForm from "../MultipleInputForm/MultipleInputForm";
 
 const SearchMoviesForm = ({ updateMovies }) => {
   const [submitRequest, setSubmitRequest] = useState({
@@ -22,7 +21,6 @@ const SearchMoviesForm = ({ updateMovies }) => {
     const response = await getMoviesDataFromAPI(inputValue);
 
     if (requestWasSuccessful(response)) {
-
       updateMovies(response.data.items);
       setSubmitRequest({
         error: false,
@@ -40,25 +38,27 @@ const SearchMoviesForm = ({ updateMovies }) => {
   };
 
   useEffect(() => {
-    //showing all available movies when component mounts
     requestMoviesFromAPI();
   }, []);
 
   const onSearchSubmit = (e) => {
+    setInputValue('');
     e.preventDefault();
-
     requestMoviesFromAPI();
+  };
+
+  const onInputChange = (e) => {
+    setInputValue(e.target.value);
   };
 
   return (
     <>
-      <OneInputForm
+      <MultipleInputForm 
         onFormSubmit={onSearchSubmit}
-        inputName={"MovieName"}
+        inputs={[{ name: "MovieName", type: "text", value: inputValue }]}
         submitRequest={submitRequest}
         submitButtonName={"Search movie"}
-        inputValue={inputValue}
-        setInputValue={setInputValue}
+        onInputChange={onInputChange}
       />
     </>
   );

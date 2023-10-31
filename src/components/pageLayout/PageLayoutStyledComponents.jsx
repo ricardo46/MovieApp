@@ -66,7 +66,7 @@ const HeadersContainer = styled.div`
 
 const OutletContainer = styled.div`
   display: grid;
-  /* width: 100%; */
+  width: 100%;
   box-sizing: border-box;
   height: 100%;
 `;

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import OneInputForm from "../oneInputForm/OneInputForm";
 import { useUser } from "../../context/UserContext";
 import DropDown from "../dropDown/DropDown";
 import {
@@ -13,8 +12,9 @@ import {
   stringIsEmpty,
   validNewListName,
 } from "./userListsUtils";
+import MultipleInputForm from "../MultipleInputForm/MultipleInputForm";
 
-const UserLists = ({ setMovieList, setMovieListObj }) => {
+const UserLists = ({ setMovieListObj }) => {
   const { user, setUser } = useUser();
 
   const movieLists = user.movieLists;
@@ -27,12 +27,14 @@ const UserLists = ({ setMovieList, setMovieListObj }) => {
 
   const onListChange = (e) => {
     const list = movieLists.find((el) => el.id == e.target.value);
-    list ? setMovieList(list.list) : setMovieList([]);
-    // list ? console.log('actual list obj',list) : console.log('No actual list obj')
+    console.log('user',user)
+    console.log('movieLists',movieLists)
+
     list ? setMovieListObj(list) : setMovieListObj({});
   };
 
   const onNewListSubmit = async (e) => {
+    setInputValue("");
     e.preventDefault();
     let submitSuccessMessage = null;
     let submitErrorMessage = null;
@@ -60,7 +62,7 @@ const UserLists = ({ setMovieList, setMovieListObj }) => {
         });
       }
       const userId = user.id;
-      console.log("movieLists", movieLists);
+      // console.log("movieLists", movieLists);
       const userPreviousListsIds = movieLists.map((list) => ({
         movielist_id: list.movielist_id,
       }));
@@ -88,10 +90,12 @@ const UserLists = ({ setMovieList, setMovieListObj }) => {
         });
       }
 
+      const newList={ movielist_id: newListId,id: newListId, name: inputValue, list: [] }
       const newMovieLists = [
         ...movieLists,
-        { movielist_id: newListId, name: inputValue, list: [] },
+        newList,
       ];
+      console.log("newMovieLists", newMovieLists);
       setUser((prev) => ({
         ...prev,
         movieLists: newMovieLists,
@@ -108,16 +112,18 @@ const UserLists = ({ setMovieList, setMovieListObj }) => {
     }
   };
 
+  const onInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
   return (
     <>
-      <OneInputForm
+      <MultipleInputForm
         onFormSubmit={onNewListSubmit}
-        inputName={"NewListName"}
+        inputs={[{ name: "NewListName", type: "text", value: inputValue }]}
         submitRequest={submitRequest}
         submitButtonName={"Create new list"}
-        inputValue={inputValue}
-        setInputValue={setInputValue}
-        acceptEmptyInput={false}
+        onInputChange={onInputChange}
       />
       <DropDown
         onChangeFunction={onListChange}

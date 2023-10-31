@@ -15,27 +15,31 @@ const ErrorMessage = styled.h3`
 `;
 
 const StyledInput = styled.input`
-  padding: 0;
   height: 2rem;
   box-sizing: border-box;
   border-radius: 1rem;
-  background-color: black;
+  background-color: rgb(48, 48, 48);
   outline: none;
-  padding: 0 0 0 0;
+  padding: 0.3rem;
+  border: gray 2px solid;
+  color: white;
+  text-align: center;
   &:focus {
     outline: #ffffffb6;
     box-shadow: 0px 0px 2px red;
-    background-color: #303030;
+    background-color: #00000042;
   }
 `;
 
 const StyledButton = styled.button`
-  padding: 0.5rem;
+  padding: 0.3rem;
   height: 2rem;
   box-sizing: border-box;
   font-weight: 400;
   font-size: 0.8rem;
   border-radius: 1rem;
+  border: gray 2px solid;
+  color: white;
 
 `;
 

@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 import { UserProvider } from "./context/UserContext";
-import Register from "./components/registerComponents/Register";
+import Register from "./pages/Register/Register";
 
 import PageLayout from "./components/pageLayout/PageLayout";
 import { PageProvider } from "./context/PageContext";

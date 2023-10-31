@@ -1,18 +1,7 @@
 import styled from "@emotion/styled";
 import { StyledButton, StyledInput } from "../StyledComponents";
 
-const StyledForm = styled.form`
-  /* z-index: 5; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* margin-left: 30%; */
-  width: 100%;
-  /* position: fixed;
-  top: 1rem; */
-  padding: 0.5rem 0 0.5rem 0;
-`;
+
 
 const SearchMoviesStyledButton = styled(StyledButton)`
   background-color: transparent;
@@ -33,7 +22,6 @@ const FormMessageStyledContainer = styled.div`
 `;
 
 export {
-  StyledForm,
   SearchMoviesStyledInput,
   SearchMoviesStyledButton,
   FormMessageStyledContainer,
