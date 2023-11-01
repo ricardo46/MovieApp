@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import {
   getMoviesDataFromAPI,
-  requestWasSuccessful,
 } from "../../utils/apiUtils";
 import MultipleInputForm from "../MultipleInputForm/MultipleInputForm";
 
@@ -15,19 +14,20 @@ const SearchMoviesForm = ({ updateMovies }) => {
   const [inputValue, setInputValue] = useState("");
 
   const requestMoviesFromAPI = async () => {
+    try{
     setSubmitRequest({
       isLoading: true,
     });
     const response = await getMoviesDataFromAPI(inputValue);
 
-    if (requestWasSuccessful(response)) {
       updateMovies(response.data.items);
       setSubmitRequest({
         error: false,
         submitted: true,
         isLoading: false,
       });
-    } else {
+  } catch (error) {
+
       setSubmitRequest({
         error: true,
         submitted: true,
@@ -42,7 +42,7 @@ const SearchMoviesForm = ({ updateMovies }) => {
   }, []);
 
   const onSearchSubmit = (e) => {
-    setInputValue('');
+    setInputValue("");
     e.preventDefault();
     requestMoviesFromAPI();
   };
@@ -52,15 +52,13 @@ const SearchMoviesForm = ({ updateMovies }) => {
   };
 
   return (
-    <>
-      <MultipleInputForm 
-        onFormSubmit={onSearchSubmit}
-        inputs={[{ name: "MovieName", type: "text", value: inputValue }]}
-        submitRequest={submitRequest}
-        submitButtonName={"Search movie"}
-        onInputChange={onInputChange}
-      />
-    </>
+    <MultipleInputForm
+      onFormSubmit={onSearchSubmit}
+      inputs={[{ name: "MovieName", type: "text", value: inputValue }]}
+      submitRequest={submitRequest}
+      submitButtonName={"Search"}
+      onInputChange={onInputChange}
+    />
   );
 };
 

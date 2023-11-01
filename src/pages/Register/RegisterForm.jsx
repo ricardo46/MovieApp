@@ -29,10 +29,7 @@ const RegisterForm = () => {
       let response = await axios.post(
         "https://x8ki-letl-twmt.n7.xano.io/api:E95hPK0b/auth/signup",
         { name, email, password } //pass: aaa111222
-      ); //enviar o payload (nome email password).
-      // Endpoint link: ir buscar ao Xano, POST /auth/signup
-      // response vai ser um token do Xano
-      // register request
+      );
 
       response = await logUserInAPI(email, password);
       const authToken = response.data.authToken;
@@ -81,7 +78,6 @@ const RegisterForm = () => {
         onFormSubmit={onRegisterSubmit}
         inputs={[
           { name: "name", type: "text", value: name },
-
           { name: "email", type: "email", value: email },
           { name: "password", type: "password", value: password },
         ]}

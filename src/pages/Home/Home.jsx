@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { usePage } from "../../context/PageContext";
 import Movies from "../../components/moviesComponent/Movies";
 import SearchMoviesForm from "../../components/moviesComponent/SearchMoviesForm";
+import { HomeSearchMoviesFormContainer } from "./HomeStyledComponents";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -15,7 +16,9 @@ const Home = () => {
 
   return (
     <>
-      <SearchMoviesForm updateMovies={updateMovies} />
+      <HomeSearchMoviesFormContainer>
+        <SearchMoviesForm updateMovies={updateMovies} />
+      </HomeSearchMoviesFormContainer>
       <Movies movies={movies} displayType={"grid"} />
     </>
   );

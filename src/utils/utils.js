@@ -16,3 +16,6 @@ return lists.map(list=>list.name)
 const stringIsEmpty = (input) => input == "";
 
 export {validNewListName,stringIsEmpty,listNameExists,getListNamesArray}
+
+
+

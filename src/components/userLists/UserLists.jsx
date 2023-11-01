@@ -4,14 +4,13 @@ import DropDown from "../dropDown/DropDown";
 import {
   postMoviesList,
   postUserList,
-  requestWasSuccessful,
 } from "../../utils/apiUtils";
 import {
   getListNamesArray,
   listNameExists,
   stringIsEmpty,
   validNewListName,
-} from "./userListsUtils";
+} from "../../utils/utils";
 import MultipleInputForm from "../MultipleInputForm/MultipleInputForm";
 
 const UserLists = ({ setMovieListObj }) => {
@@ -27,8 +26,8 @@ const UserLists = ({ setMovieListObj }) => {
 
   const onListChange = (e) => {
     const list = movieLists.find((el) => el.id == e.target.value);
-    console.log('user',user)
-    console.log('movieLists',movieLists)
+    console.log("user", user);
+    console.log("list111", list);
 
     list ? setMovieListObj(list) : setMovieListObj({});
   };
@@ -40,19 +39,56 @@ const UserLists = ({ setMovieListObj }) => {
     let submitErrorMessage = null;
 
     if (validNewListName(inputValue, movieLists)) {
-      setSubmitRequest({
-        isLoading: true,
-      });
-      const postMoviesListResponse = await postMoviesList(inputValue, []);
-      if (requestWasSuccessful(postMoviesListResponse)) {
+      try {
+        setSubmitRequest({
+          isLoading: true,
+        });
+        const postMoviesListResponse = await postMoviesList(inputValue, []);
+        // if (requestWasSuccessful(postMoviesListResponse)) {
         submitSuccessMessage = `${inputValue} was added to the server`;
+        // console.log('postMoviesListResponse',postMoviesListResponse)
         setSubmitRequest({
           error: false,
           submitted: true,
           isLoading: false,
           message: submitSuccessMessage,
         });
-      } else {
+        // }
+        // else {
+        const userId = user.id;
+        // console.log("movieLists", movieLists);
+        const userPreviousListsIds = movieLists.map((list) => ({
+          movielist_id: list.movielist_id,
+        }));
+        const newListId = postMoviesListResponse.data.id;
+
+        const movieListsIds = [
+          ...userPreviousListsIds,
+          { movielist_id: newListId },
+        ];
+        await postUserList(userId, movieListsIds);
+        setSubmitRequest({
+          error: false,
+          submitted: true,
+          isLoading: false,
+          message: `${submitSuccessMessage}\n${inputValue} was added to the user`,
+        });
+        // }
+        const newList = {
+          movielist_id: newListId,
+          id: newListId,
+          name: inputValue,
+          list: [],
+        };
+        const newMovieLists = [...movieLists, newList];
+        console.log("newMovieLists", newMovieLists);
+        setUser((prev) => ({
+          ...prev,
+          movieLists: newMovieLists,
+        }));
+      } catch (err) {
+        console.log("err", err);
+
         submitErrorMessage = `${inputValue} not added to the server!`;
         setSubmitRequest({
           error: true,
@@ -61,45 +97,7 @@ const UserLists = ({ setMovieListObj }) => {
           errorMessage: submitErrorMessage,
         });
       }
-      const userId = user.id;
-      // console.log("movieLists", movieLists);
-      const userPreviousListsIds = movieLists.map((list) => ({
-        movielist_id: list.movielist_id,
-      }));
-      const newListId = postMoviesListResponse.data.id;
 
-      const movieListsIds = [
-        ...userPreviousListsIds,
-        { movielist_id: newListId },
-      ];
-      const postUserListResponse = await postUserList(userId, movieListsIds);
-
-      if (requestWasSuccessful(postUserListResponse)) {
-        setSubmitRequest({
-          error: false,
-          submitted: true,
-          isLoading: false,
-          message: `${submitSuccessMessage}\n${inputValue} was added to the user`,
-        });
-      } else {
-        setSubmitRequest({
-          error: true,
-          submitted: true,
-          errorMessage: `${submitErrorMessage}\n${inputValue} not added to the user!`,
-          isLoading: false,
-        });
-      }
-
-      const newList={ movielist_id: newListId,id: newListId, name: inputValue, list: [] }
-      const newMovieLists = [
-        ...movieLists,
-        newList,
-      ];
-      console.log("newMovieLists", newMovieLists);
-      setUser((prev) => ({
-        ...prev,
-        movieLists: newMovieLists,
-      }));
     } else {
       listNameExists(inputValue, getListNamesArray(movieLists)) &&
         setSubmitRequest({

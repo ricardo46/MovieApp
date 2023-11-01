@@ -11,6 +11,7 @@ const PageContainer = styled.div`
   justify-content: start;
   box-sizing: border-box;
   align-items: center;
+  
 `;
 
 const DashBoard = styled.div`
@@ -69,6 +70,7 @@ const OutletContainer = styled.div`
   width: 100%;
   box-sizing: border-box;
   height: 100%;
+  justify-content: center;
 `;
 
 export {

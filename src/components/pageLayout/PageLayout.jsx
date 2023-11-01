@@ -16,7 +16,6 @@ import { useEffect, useState } from "react";
 import { usePage } from "../../context/PageContext";
 import {
   getUserInAPI,
-  requestWasSuccessful,
   responseStatusIsRequestsLimit,
 } from "../../utils/apiUtils";
 import { useError } from "../../context/ErrorContext";

@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
+import { BUTTON_FONT_SIZE, FONT_COLOR, FONT_WEIGHT } from "../globalVariables";
+// import * as palette from '..globalVariables.js';
 
 const FormMessage = styled.p`
   color: #ff8000;
@@ -25,22 +27,20 @@ const StyledInput = styled.input`
   color: white;
   text-align: center;
   &:focus {
-    outline: #ffffffb6;
-    box-shadow: 0px 0px 2px red;
-    background-color: #00000042;
+    /* box-shadow: 0px 0px 2px ${FONT_COLOR}; */
+    /* border: none; */
   }
 `;
 
 const StyledButton = styled.button`
-  padding: 0.3rem;
+  padding: 0.3rem ;
   height: 2rem;
   box-sizing: border-box;
-  font-weight: 400;
-  font-size: 0.8rem;
+  font-weight: ${FONT_WEIGHT};
+  font-size: ${BUTTON_FONT_SIZE};
   border-radius: 1rem;
   border: gray 2px solid;
-  color: white;
-
+  color: ${FONT_COLOR};
 `;
 
 const StyledSelect = styled.select`

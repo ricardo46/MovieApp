@@ -59,8 +59,8 @@ const FavoriteSymbolStyled = styled.div`
   font-weight: 600;
   border: solid red 1px;
   line-height: 2rem;
-width: 2rem;
-z-index: 150;
+  width: 2rem;
+  z-index: 150;
 `;
 
 export {

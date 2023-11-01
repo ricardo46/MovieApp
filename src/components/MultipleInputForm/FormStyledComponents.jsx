@@ -30,7 +30,17 @@ const StyledForm = styled.form`
   padding: 0.5rem 0 0.5rem 0;
 `;
 
-export { FormButton, FormInput, FormContainer, StyledForm };
+const FormMessageStyledContainer = styled.div`
+  padding: 0.2rem 0 0 0;
+`;
+
+export {
+  FormButton,
+  FormInput,
+  FormContainer,
+  StyledForm,
+  FormMessageStyledContainer,
+};
 
 // const OneInputFormButton = styled(StyledButton)`
 //   border-radius: 1rem 0 0 1rem;

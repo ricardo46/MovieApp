@@ -1,8 +1,7 @@
-import { FormMessageStyledContainer } from "../moviesComponent/SearchMoviesFormStyledComponents";
 import { LoadingAnimation } from "../LoadingAnimation";
 
 import { FormMessage } from "../StyledComponents";
-import { FormContainer, FormButton, FormInput, StyledForm } from "./FormStyledComponents";
+import { FormContainer, FormButton, FormInput, StyledForm, FormMessageStyledContainer } from "./FormStyledComponents";
 
 const MultipleInputForm = ({
   //   updateMovies,

@@ -1,0 +1,8 @@
+const FONT_COLOR = "rgb(203, 203, 203)";
+
+const FONT_WEIGHT = "400";
+const BUTTON_FONT_SIZE = "0.7rem";
+
+
+
+export { FONT_COLOR,FONT_WEIGHT ,BUTTON_FONT_SIZE};
