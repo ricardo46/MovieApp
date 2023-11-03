@@ -41,6 +41,8 @@ const MovieContainer = styled.li`
   align-items: center;
   overflow-y: hidden;
   align-self: center;
+  position: relative;
+  /* align-items: end; */
   /* padding: ${({ size }) => (size == "small" ? "" : "1rem")}; */
 `;
 
@@ -58,15 +60,28 @@ const CardImageContainer = styled.div`
 const FavoriteSymbolStyled = styled.div`
   /* height: 1rem;
   width: 1rem; */
-  color: red;
+  /* text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black; */
+  color: #0f5d9cda;
+  /* background-color: transparent; */
   position: absolute;
   top: 0;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 600;
-  border: solid red 1px;
+  /* border: solid 4px #0f5d9cda; */
   line-height: 2rem;
+  height: 2rem;
   width: 2rem;
   z-index: 150;
+  display: flex;
+  justify-content: center;
+  /* border-radius: 50%; */
+  /* box-sizing: content-box; */
+`;
+
+const FavoriteSymbolContainer = styled.div`
+  display: flex;
+  justify-content: end;
+  /* position: relative; */
 `;
 
 export {
@@ -76,4 +91,5 @@ export {
   CardImage,
   CardImageContainer,
   FavoriteSymbolStyled,
+  FavoriteSymbolContainer,
 };

@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import { usePage } from "../../context/PageContext";
 import Movies from "../../components/moviesComponent/Movies";
 import SearchMoviesForm from "../../components/moviesComponent/SearchMoviesForm";
-import { FormMessage, SectionContainer } from "../../components/StyledComponents";
+import {
+  FormMessage,
+  SectionContainer,
+} from "../../components/StyledComponents";
 import UserLists from "../../components/userLists/UserLists";
 import FavoriteSymbol from "../../components/movieCardComponent/FavoriteSymbol";
 import { useUser } from "../../context/UserContext";
@@ -70,8 +73,7 @@ const MyAccount = () => {
             ...prev,
             list: updatedMovieList,
           }));
-          // console.log("movieLists", movieLists);
-          // console.log("movieListObj", movieListObj);
+
           setSubmitRequest({
             error: false,
             submitted: true,
@@ -104,9 +106,6 @@ const MyAccount = () => {
       list.id == movieListObj.id ? movieListObj : list
     );
 
-    // const newMovieLists = [...movieLists, movieListObj];
-    // console.log("newMovieLists", newMovieLists);
-
     setUser((prev) => ({
       ...prev,
       movieLists: newMovieLists,
@@ -124,7 +123,6 @@ const MyAccount = () => {
         <Movies movies={movieListObj.list} size="small" />
         <FormMessage>{submitRequest.message}</FormMessage>
         <FormMessage>{submitRequest.errorMessage}</FormMessage>
-
       </SectionContainer>
       <SectionContainer>
         <SearchMoviesForm updateMovies={updateMovies} />

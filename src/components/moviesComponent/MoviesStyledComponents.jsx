@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const MovieLink = styled(NavLink)`
   margin: 0;
+  text-decoration: none;
 `;
 
 const MoviesList = styled.ul`

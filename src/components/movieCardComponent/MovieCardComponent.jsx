@@ -1,23 +1,25 @@
 import {
   CardImage,
   CardImageContainer,
+  FavoriteSymbolContainer,
   InfoContainer,
   MovieContainer,
   StyledInfo,
 } from "./MovieCardStyledComponent";
 const MovieCard = ({ movie, size, favoriteSymbol, symbolOnclickEvent }) => {
-
-  const handleOnclick=(e)=>{
-    symbolOnclickEvent(e,movie)
-  }
+  const handleOnclick = (e) => {
+    symbolOnclickEvent(e, movie);
+  };
   return (
     <MovieContainer size={size}>
+      <FavoriteSymbolContainer onClick={handleOnclick}>
+        {favoriteSymbol}
+      </FavoriteSymbolContainer>
       <CardImageContainer size={size}>
         <CardImage
           src={size == "small" ? movie.smallImageUrl : movie.bigImageUrl}
           size={size}
         ></CardImage>
-        <div onClick={handleOnclick}>{favoriteSymbol}</div>
       </CardImageContainer>
       <InfoContainer size={size}>
         <StyledInfo> {movie.title}</StyledInfo>
