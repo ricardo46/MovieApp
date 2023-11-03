@@ -30,24 +30,24 @@ const RegisterForm = () => {
         "https://x8ki-letl-twmt.n7.xano.io/api:E95hPK0b/auth/signup",
         { name, email, password } //pass: aaa111222
       );
-
-      response = await logUserInAPI(email, password);
-      const authToken = response.data.authToken;
-      setLocalStorageItem("authToken", authToken);
-      const user = response.data.user;
-      setUser({
-        id: user.id,
-        name: user.name,
-        email: user.email,
-        movieLists: user.movieLists,
-      });
+      // response = await logUserInAPI(email, password);
+      // const authToken = response.data.authToken;
+      // setLocalStorageItem("authToken", authToken);
+      // const user = response.data.user;
+      // setUser({
+      //   id: user.id,
+      //   name: user.name,
+      //   email: user.email,
+      //   movieLists: user.movieLists,
+      // });
       setSubmitRequest({
         error: false,
         submitted: true,
         isLoading: false,
+        message: `User ${name} was successfully registered!`
       });
-      setAuth(() => true);
-      navigate("/myAccount");
+      // setAuth(() => true);
+      // navigate("/myAccount");
     } catch (err) {
       // se der erro, por exemplo ja existir um user com estes dados, mostra uma mensagem
       console.log(err);

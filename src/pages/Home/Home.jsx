@@ -7,6 +7,7 @@ import { HomeSearchMoviesFormContainer } from "./HomeStyledComponents";
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const updateMovies = (newMovies) => {
+    console.log('updating movies',newMovies)
     setMovies(newMovies);
   };
   const { setSubPageData } = usePage();

@@ -1,50 +1,25 @@
 import { useEffect, useState } from "react";
-import {
-  getMoviesDataFromAPI,
-} from "../../utils/apiUtils";
+import { getMoviesDataFromAPI } from "../../utils/apiUtils";
 import MultipleInputForm from "../MultipleInputForm/MultipleInputForm";
+import { useGetAPIData } from "../UseGetAPIData";
 
 const SearchMoviesForm = ({ updateMovies }) => {
-  const [submitRequest, setSubmitRequest] = useState({
-    isLoading: false,
-    submitted: false,
-    error: false,
-  });
-
   const [inputValue, setInputValue] = useState("");
-
-  const requestMoviesFromAPI = async () => {
-    try{
-    setSubmitRequest({
-      isLoading: true,
-    });
-    const response = await getMoviesDataFromAPI(inputValue);
-
-      updateMovies(response.data.items);
-      setSubmitRequest({
-        error: false,
-        submitted: true,
-        isLoading: false,
-      });
-  } catch (error) {
-
-      setSubmitRequest({
-        error: true,
-        submitted: true,
-        errorMessage: response.response.data.message,
-        isLoading: false,
-      });
-    }
-  };
+  const { data: moviesData, submitRequest, getData } = useGetAPIData();
 
   useEffect(() => {
-    requestMoviesFromAPI();
+    getData({ apiParams: [inputValue], apiRequest: getMoviesDataFromAPI });
   }, []);
+
+  useEffect(() => {
+    console.log("moviesData", moviesData);
+    updateMovies(moviesData.items);
+  }, [submitRequest, moviesData]);
 
   const onSearchSubmit = (e) => {
     setInputValue("");
     e.preventDefault();
-    requestMoviesFromAPI();
+    getData({ apiParams: [inputValue], apiRequest: getMoviesDataFromAPI });
   };
 
   const onInputChange = (e) => {

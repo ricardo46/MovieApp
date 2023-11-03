@@ -1,7 +1,9 @@
 import styled from "@emotion/styled";
+import { SMALL_FONT_SIZE } from "../../globalVariables";
 
 const StyledInfo = styled.label`
-  font-size: 0.8rem;
+  font-size: ${SMALL_FONT_SIZE};
+
   color: white;
   text-align: left;
 `;
@@ -10,13 +12,13 @@ const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
-  padding: 0 0.8rem 0;
-  height: 71px;
+  padding: 0.8rem;
+  /* height: 71px; */
   background-color: #4a4a4aa8;
-  position: ${({ size }) => (size == "small" ? "relative" : "static")};
+  /* position: ${({ size }) => (size == "small" ? "relative" : "static")}; */
   box-sizing: border-box;
-  width: 190px;
-  height: 100%;
+  width: 100%;
+  height: 20%;
 `;
 
 const MovieContainer = styled.li`
@@ -24,12 +26,15 @@ const MovieContainer = styled.li`
   list-style-type: none;
   /* margin: ${({ size }) => (size == "small" ? "0" : "6rem 0 0 0")}; */
 
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
-  height: ${({ size }) => (size == "small" ? "281px" : "")};
+  /* height: ${({ size }) => (size == "small" ? "281px" : "500px")};
   display: ${({ size }) => (size == "small" ? "block" : "flex")};
-  width: ${({ size }) => (size == "small" ? "100%" : "")};
-  border: ${({ size }) => (size == "small" ? "3px solid blue" : "")};
+  width: ${({ size }) => (size == "small" ? "150px" : "")}; */
+  height: 281px;
+  display: block;
+  width: 150px;
+  /* border: ${({ size }) => (size == "small" ? "1px solid blue" : "")}; */
   /* align-items: center; */
   justify-content: center;
   box-sizing: border-box;
@@ -41,12 +46,13 @@ const MovieContainer = styled.li`
 
 const CardImage = styled.img`
   display: block;
-  height: ${({ size }) => (size == "small" ? "" : "100%")};
+  /* height: ${({ size }) => (size == "small" ? "" : "100%")};
+  width: ${({ size }) => (size == "small" ? "100%" : "auto")}; */
   width: 100%;
 `;
 const CardImageContainer = styled.div`
-  height: ${({ size }) => (size == "small" ? "210px" : "100%")};
-  position: relative;
+  height: 80%;
+  /* position: relative; */
 `;
 
 const FavoriteSymbolStyled = styled.div`

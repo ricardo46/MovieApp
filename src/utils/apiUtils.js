@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getLocalStorageItem, setLocalStorageItem } from "./localStorageUtils";
 
-const logUserInAPI = async (email, password) => {
+const logUserInAPI = async ([email, password]) => {
   // console.log("logUserInAPI request!!!");
   return await axios.post(
     "https://x8ki-letl-twmt.n7.xano.io/api:E95hPK0b/auth/login",
@@ -20,7 +20,7 @@ const getUserInAPI = async (authToken) => {
   return response;
 };
 
-const getMovieDataFromAPI = async (movieId) => {
+const getMovieDataFromAPI = async ([movieId]) => {
   // console.log("getMovieDataFromAPI request!!!");
   // const response = await getMovie(movieId);
   // return response;
@@ -32,14 +32,14 @@ const getMovieDataFromAPI = async (movieId) => {
 // const requestWasSuccessful = (apiResponse) => apiResponse.status == "200";
 
 const responseStatusIsRequestsLimit = (apiResponse) => {
-  if (apiResponse.response.status == "429") {
-    console.log(
-      "Requests limit was reached!",
-      "Status:",
-      apiResponse.response.status
-    );
-    return true;
-  }
+  // if (apiResponse.response.status == "429") {
+  //   console.log(
+  //     "Requests limit was reached!",
+  //     "Status:",
+  //     apiResponse.response.status
+  //   );
+  //   return true;
+  // }
   return false;
 };
 
@@ -74,7 +74,7 @@ const responseStatusIsRequestsLimit = (apiResponse) => {
 //   return response;
 // };
 
-const getMoviesDataFromAPI = async (movieName) => {
+const getMoviesDataFromAPI = async ([movieName]) => {
   // try {
   //   const response = await getFilteredMovies(movieName);
   //   return response;
@@ -87,17 +87,17 @@ const getMoviesDataFromAPI = async (movieName) => {
 };
 
 const postMoviesList = async (name, list) => {
+
   const authToken = getLocalStorageItem("authToken");
   // try {
-  return await axios.post(
-    "https://x8ki-letl-twmt.n7.xano.io/api:E95hPK0b/movielist",
-    {
+  const response = await axios.post("https://x8ki-letl-twmt.n7.xano.io/api:E95hPK0b/movielist",{
       name,
       list,
     },
     { headers: { Authorization: `Bearer ${authToken}` } }
   );
-  // return response;
+  console.log("response11111", response);
+  return response;
   // } catch (error) {
   //   return error;
   // }

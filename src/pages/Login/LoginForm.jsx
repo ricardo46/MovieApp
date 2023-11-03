@@ -1,20 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useUser } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import { logUserInAPI } from "../../utils/apiUtils";
 import { setLocalStorageItem } from "../../utils/localStorageUtils";
 import MultipleInputForm from "../../components/MultipleInputForm/MultipleInputForm";
+import { useGetAPIData } from "../../components/UseGetAPIData";
 
 const LoginForm = () => {
   const navigate = useNavigate();
   const { user, setUser, auth, setAuth } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [submitRequest, setSubmitRequest] = useState({
-    isLoading: false,
-    submitted: false,
-    error: false,
-  });
+
+  const { data: userData, submitRequest, getData } = useGetAPIData();
 
   const onInputChange = (e) => {
     if (e.target.name == "email") {
@@ -27,38 +25,25 @@ const LoginForm = () => {
 
   const onLoginSubmit = async (e) => {
     e.preventDefault();
+    getData({ apiParams: [email, password], apiRequest: logUserInAPI });
+  };
 
-
-    setSubmitRequest({
-      isLoading: true,
-    });
-    try {
-      const response = await logUserInAPI(email, password);
-      const authToken = response.data.authToken;
+  useEffect(() => {
+    if (userData.user) {
+      const authToken = userData.authToken;
       setLocalStorageItem("authToken", authToken);
-      const user = response.data.user;
+      console.log("userData", userData);
+      const user = userData.user;
       setUser({
         id: user.id,
         name: user.name,
         email: user.email,
         movieLists: user.movieLists,
       });
-      setSubmitRequest({
-        error: false,
-        submitted: true,
-        isLoading: false,
-      });
       setAuth(() => true);
       navigate("/myAccount");
-    } catch (err) {
-      setSubmitRequest({
-        error: true,
-        submitted: true,
-        errorMessage: err.response.data.message,
-        isLoading: false,
-      });
     }
-  };
+  }, [userData]);
 
   return (
     <MultipleInputForm

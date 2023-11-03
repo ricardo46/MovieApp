@@ -10,17 +10,17 @@ const MoviesList = styled.ul`
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 190px);
+  grid-template-columns: repeat(auto-fit, 150px);
   gap: 1rem;
   justify-content: center;
   border: solid red 2px;
   height: auto;
-  grid-auto-flow: ${({displayType})=>displayType=='grid'? '': 'column'};
-  overflow-x: ${({displayType})=>displayType=='grid'? '': 'auto'};
-  max-width: ${({displayType})=>displayType=='grid'? '100vw': ''};
+  /* grid-auto-flow: ${({ displayType }) =>
+    displayType == "grid" ? "" : "column"}; */
+  /* overflow-x: ${({ displayType }) => (displayType == "grid" ? "" : "auto")};
+  max-width: ${({ displayType }) => (displayType == "grid" ? "100vw" : "")}; */
 
-
-  justify-content: start;
+  max-width: 100vw;
 `;
 
 /* const MoviesListStyledContainer=styled.div`
