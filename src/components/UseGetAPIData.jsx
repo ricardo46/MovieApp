@@ -19,10 +19,10 @@ export const useGetAPIData = () => {
   });
   // console.log("useEffectArray", useEffectArray);
 
-  const getData = async ({ apiParams, apiRequest }) => {
+  const newFetch = async ({ apiParams, apiRequest }) => {
     try {
       // console.log('apiParams',apiParams)
-      // console.log("inside getdata.....");
+      // console.log("inside newFetch.....");
 
       setSubmitRequest({
         isLoading: true,
@@ -50,9 +50,9 @@ export const useGetAPIData = () => {
   };
 
   // useEffect(() => {
-  //   getData();
+  //   newFetch();
   // }, useEffectArray);
 
   // return { data, submitRequest };
-  return { data, submitRequest, getData };
+  return { data, submitRequest, newFetch };
 };

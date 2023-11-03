@@ -5,10 +5,10 @@ import { useGetAPIData } from "../UseGetAPIData";
 
 const SearchMoviesForm = ({ updateMovies }) => {
   const [inputValue, setInputValue] = useState("");
-  const { data: moviesData, submitRequest, getData } = useGetAPIData();
+  const { data: moviesData, submitRequest, newFetch } = useGetAPIData();
 
   useEffect(() => {
-    getData({ apiParams: [inputValue], apiRequest: getMoviesDataFromAPI });
+    newFetch({ apiParams: [inputValue], apiRequest: getMoviesDataFromAPI });
   }, []);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const SearchMoviesForm = ({ updateMovies }) => {
   const onSearchSubmit = (e) => {
     setInputValue("");
     e.preventDefault();
-    getData({ apiParams: [inputValue], apiRequest: getMoviesDataFromAPI });
+    newFetch({ apiParams: [inputValue], apiRequest: getMoviesDataFromAPI });
   };
 
   const onInputChange = (e) => {

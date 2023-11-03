@@ -11,6 +11,7 @@ import FavoriteSymbol from "../../components/movieCardComponent/FavoriteSymbol";
 import { useUser } from "../../context/UserContext";
 import { movieExistsInList } from "./utils";
 import { patchListWithMovie } from "../../utils/apiUtils";
+import { updateMovieObjectList } from "./MyAccountUtils";
 
 const MyAccount = () => {
   const { setSubPageData } = usePage();
@@ -43,7 +44,6 @@ const MyAccount = () => {
     setSubmitRequest({
       isLoading: true,
     });
-    // console.log("Current list", movieListObj);
     if (movieListObj.id) {
       console.log("This movie will be added to the list", movie);
       console.log("movieListObj", movieListObj);
@@ -66,13 +66,8 @@ const MyAccount = () => {
             },
           ]);
           console.log("response222", response);
-          // setMovieListObj({movielist_id: 5, id: 5, name: 'ric fav 1', list: Array(12)})
-          const updatedMovieList = [...movieListObj.list, movie];
-          // console.log("updatedMovieList", updatedMovieList);
-          setMovieListObj((prev) => ({
-            ...prev,
-            list: updatedMovieList,
-          }));
+
+          updateMovieObjectList(movie,movieListObj,setMovieListObj)
 
           setSubmitRequest({
             error: false,

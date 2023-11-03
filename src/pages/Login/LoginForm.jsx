@@ -12,7 +12,7 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { data: userData, submitRequest, getData } = useGetAPIData();
+  const { data: userData, submitRequest, newFetch } = useGetAPIData();
 
   const onInputChange = (e) => {
     if (e.target.name == "email") {
@@ -25,7 +25,7 @@ const LoginForm = () => {
 
   const onLoginSubmit = async (e) => {
     e.preventDefault();
-    getData({ apiParams: [email, password], apiRequest: logUserInAPI });
+    newFetch({ apiParams: [email, password], apiRequest: logUserInAPI });
   };
 
   useEffect(() => {

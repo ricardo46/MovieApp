@@ -13,7 +13,7 @@ const MoviePage = () => {
   const [movie, setMovie] = useState({});
   const [movies, setMovies] = useState([]);
   const { subPageData, setSubPageData } = usePage();
-  const { data: movieData, submitRequest, getData } = useGetAPIData();
+  const { data: movieData, submitRequest, newFetch } = useGetAPIData();
 
 
   const setMovieData = async () => {
@@ -24,7 +24,7 @@ const MoviePage = () => {
   };
 
   useEffect(() => {
-    getData({ apiParams: [movieId], apiRequest: getMovieDataFromAPI });
+    newFetch({ apiParams: [movieId], apiRequest: getMovieDataFromAPI });
   }, [movieId]);
 
   useEffect(() => {
