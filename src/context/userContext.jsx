@@ -4,16 +4,18 @@ const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState({});
-  // const [userIsLoaded, setUserIsLoaded] = useState(false);
 
   const [auth, setAuth] = useState(false);
 
-  
+  const updateUser = (newData) => {
+    setUser((prev) => ({
+      ...prev,
+      ...newData,
+    }));
+  };
 
   return (
-    <UserContext.Provider
-      value={{ user, setUser, auth, setAuth }}
-    >
+    <UserContext.Provider value={{ user, setUser, updateUser, auth, setAuth }}>
       {children}
     </UserContext.Provider>
   );

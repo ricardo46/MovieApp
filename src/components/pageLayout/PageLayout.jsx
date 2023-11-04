@@ -92,6 +92,7 @@ const PageLayout = () => {
     setUser({});
     localStorage.clear();
   };
+  
   return (
     <>
       {apiResponse.responseReceived && (

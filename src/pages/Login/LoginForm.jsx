@@ -8,7 +8,7 @@ import { useGetAPIData } from "../../components/UseGetAPIData";
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const { user, setUser, auth, setAuth } = useUser();
+  const { setUser, setAuth } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

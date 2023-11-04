@@ -20,7 +20,7 @@ const MyAccount = () => {
     setMovies(newMovies);
   };
 
-  const { user, setUser } = useUser();
+  const { user, updateUser } = useUser();
 
   const movieLists = user.movieLists;
 
@@ -101,10 +101,9 @@ const MyAccount = () => {
       list.id == movieListObj.id ? movieListObj : list
     );
 
-    setUser((prev) => ({
-      ...prev,
-      movieLists: newMovieLists,
-    }));
+
+    updateUser({movieLists: newMovieLists})
+
   }, [movieListObj]);
 
   return (
