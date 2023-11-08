@@ -12,7 +12,7 @@ import FavoriteSymbol from "../../components/MovieCardComponent/FavoriteSymbol";
 import { movieExistsInList } from "./utils";
 import { patchListWithMovie } from "../../utils/apiUtils";
 import { updateMovieObjectList } from "./MyAccountUtils";
-import { MY_ACCOUNT_PAGE_NAME } from "../../globalVariables";
+import { MESSAGE_DURATION, MY_ACCOUNT_PAGE_NAME } from "../../globalVariables";
 import { useUser } from "../../context/UserContext";
 
 const MyAccount = () => {
@@ -32,6 +32,7 @@ const MyAccount = () => {
     submitted: false,
     error: false,
   });
+  const [messageIsVisible, setMessageIsVisible] = useState(true);
 
   useEffect(() => {
     setSubPageData(() => ({
@@ -45,13 +46,7 @@ const MyAccount = () => {
       isLoading: true,
     });
     if (movieListObj?.id) {
-      console.log("This movie will be added to the list", movie);
-      console.log("movieListObj", movieListObj);
-
       if (movieExistsInList(movie, movieListObj.list)) {
-        console.log(
-          `movie ${movie.title} already exists in ${movieListObj.name}`
-        );
         setSubmitRequest({
           error: true,
           submitted: true,
@@ -78,7 +73,6 @@ const MyAccount = () => {
             message: `movie ${movie.title} was added to ${movieListObj.name}`,
           });
         } catch (err) {
-          console.log(err);
           setSubmitRequest({
             error: true,
             submitted: true,
@@ -95,6 +89,10 @@ const MyAccount = () => {
         isLoading: false,
       });
     }
+    setMessageIsVisible(true);
+    setTimeout(() => {
+      setMessageIsVisible(false);
+    }, MESSAGE_DURATION);
   };
 
   useEffect(() => {
@@ -103,6 +101,7 @@ const MyAccount = () => {
     );
 
     updateUser({ movieLists: newMovieLists });
+    
   }, [movieListObj]);
 
   return (
@@ -113,11 +112,13 @@ const MyAccount = () => {
           setMovieListObj={setMovieListObj}
         />
         <Movies movies={movieListObj?.list} size="small" />
-        {submitRequest.error ? (
-          <ErrorMessage>{submitRequest.message}</ErrorMessage>
-        ) : (
-          <SuccessMessage>{submitRequest.message}</SuccessMessage>
-        )}
+        {submitRequest.error
+          ? messageIsVisible && (
+              <ErrorMessage>{submitRequest.message}</ErrorMessage>
+            )
+          : messageIsVisible && (
+              <SuccessMessage>{submitRequest.message}</SuccessMessage>
+            )}
       </SectionContainer>
       <SectionContainer>
         <SearchMoviesForm updateMovies={updateMovies} />
