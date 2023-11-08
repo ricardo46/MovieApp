@@ -1,6 +1,4 @@
 import styled from "@emotion/styled";
-import { StyledButton, StyledInput } from "../StyledComponents";
-import { ERROR_FONT_COLOR, SUCCESS_FONT_COLOR } from "../../globalVariables";
 
 const FormButton = styled(StyledButton)`
   background-color: gray;

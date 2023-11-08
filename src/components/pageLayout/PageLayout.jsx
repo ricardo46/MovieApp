@@ -13,11 +13,8 @@ import {
   DashBoardLinksContainer,
 } from "./PageLayoutStyledComponents";
 import { useEffect, useState } from "react";
-import { usePage } from "../../context/PageContext";
-import {
-  getUserInAPI,
-  responseStatusIsRequestsLimit,
-} from "../../utils/apiUtils";
+import { usePage } from "../../Context/PageContext";
+import { getUserInAPI } from "../../utils/apiUtils";
 import {
   APP_NAME,
   HOME_LINK_NAME,
@@ -26,12 +23,8 @@ import {
   MY_ACCOUNT_LINK_NAME,
   REGISTER_LINK_NAME,
 } from "../../globalVariables";
-import {
-  currentPageIsHome,
-  currentPageIsLogin,
-  currentPageIsMyAccount,
-  currentPageIsRegister,
-} from "./PageLayoutUtils";
+import { currentPageIsHome, currentPageIsLogin, currentPageIsMyAccount, currentPageIsRegister } from "./PageLayoutUtils";
+
 // import { useError } from "../../context/ErrorContext";
 
 const UserWelcomeMessage = ({ apiResponse }) => {
@@ -108,7 +101,6 @@ const PageLayout = () => {
 
   return (
     <>
-      {/* {console.log("currentPageIsHome", currentPageIsHome(location))} */}
       {apiResponse.responseReceived && (
         <PageContainer>
           <DashBoard>
@@ -118,6 +110,7 @@ const PageLayout = () => {
             </HeadersContainer>
             {/* {!error.status && ( */}
             <DashBoardLinksContainer>
+              <div>
               {!currentPageIsHome(location) && (
                 <DashBoardStyledLink to="/">
                   {HOME_LINK_NAME}
@@ -135,7 +128,7 @@ const PageLayout = () => {
                 </DashBoardStyledLink>
               )}
 
-              {!currentPageIsMyAccount(location) &&  auth && (
+              {!currentPageIsMyAccount(location) && auth && (
                 <DashBoardStyledLink to="/myAccount">
                   {MY_ACCOUNT_LINK_NAME}
                 </DashBoardStyledLink>
@@ -146,7 +139,7 @@ const PageLayout = () => {
                   {LOGOUT_LINK_NAME}
                 </DashBoardStyledLink>
               )}
-
+</div>
               <DashBoardMessage>
                 <UserWelcomeMessage apiResponse={apiResponse} />
               </DashBoardMessage>

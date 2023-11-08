@@ -1,10 +1,12 @@
 import styled from "@emotion/styled";
-import { Message, StyledLink } from "../StyledComponents";
 import {
   DASHBOARD_BACKGROUND_COLOR,
   DASHBOARD_MESSAGE_FONT_COLOR,
+  DASHBOARD_LAPTOP_FONT_SIZE,
+  DASHBOARD_MOBILE_FONT_SIZE,
   PAGE_BACKGROUND_COLOR,
 } from "../../globalVariables";
+import { Message } from "../StyledComponents";
 
 const PageContainer = styled.div`
   margin: 0;
@@ -19,16 +21,16 @@ const PageContainer = styled.div`
 `;
 
 const DashBoard = styled.div`
+  width: 95vw;
   margin: 0;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem;
+  padding: 0.5rem 0 0.5rem;
   box-sizing: border-box;
   position: sticky;
-  z-index: 5;
+  z-index: 10;
   top: 0;
-  height: 4rem;
-  width: 100%;
+  /* height: 4rem; */
   overflow-x: hidden;
   background-color: ${DASHBOARD_BACKGROUND_COLOR};
 `;
@@ -37,36 +39,54 @@ const DashBoardLinksContainer = styled.div`
   margin: 0;
   padding: 0;
   height: 100%;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: start;
   grid-template-columns: repeat(3, auto);
-  gap: 0.5rem;
+  gap: 0.3rem;
+  @media (min-width: 768px) {
+    gap: 0.5rem;
+  }
 `;
 
 const DashBoardMessage = styled(Message)`
   margin: 0;
   padding: 0;
   color: ${DASHBOARD_MESSAGE_FONT_COLOR};
-  font-size: 0.8rem;
   grid-column-start: span 3;
   justify-self: end;
+  font-size: ${DASHBOARD_MOBILE_FONT_SIZE};
 `;
 
 const PageHeader = styled.h3`
   color: white;
   padding: 0;
   margin: 0;
-  font-size: 1rem;
+  font-size: ${DASHBOARD_MOBILE_FONT_SIZE};
   font-weight: 300;
+
+  @media (min-width: 768px) {
+    font-size: ${DASHBOARD_LAPTOP_FONT_SIZE};
+  }
 `;
 
 const DashBoardStyledLink = styled(StyledLink)`
   color: #0073ff;
+  font-size: ${DASHBOARD_MOBILE_FONT_SIZE};
+  padding-left: 0.3rem;
+  @media (min-width: 768px) {
+    font-size: ${DASHBOARD_LAPTOP_FONT_SIZE};
+  }
 `;
 
 const HeadersContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: start;
+  gap: 0.3rem;
+  @media (min-width: 768px) {
+    gap: 0.5rem;
+  }
 `;
 
 const OutletContainer = styled.div`

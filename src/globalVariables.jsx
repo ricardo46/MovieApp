@@ -1,4 +1,4 @@
-// APP DATA
+// GENERAL
 const APP_NAME = "MovLix";
 
 // PAGE NAMES
@@ -14,13 +14,17 @@ const MY_ACCOUNT_PATH = "/myAccount";
 const REGISTER_PATH = "/register";
 const MOVIE_PATH = "movies/:movieId";
 
-// Dashboard
+// DASHBOARD LINK NAMES
 const HOME_LINK_NAME = "Home";
 const MY_ACCOUNT_LINK_NAME = "My Account";
 const LOGIN_LINK_NAME = "Login";
 const REGISTER_LINK_NAME = "Register";
 const LOGOUT_LINK_NAME = "Logout";
 const DASHBOARD_BACKGROUND_COLOR = "#313131b4";
+
+// DASHBOARD FONT
+const DASHBOARD_MOBILE_FONT_SIZE = ".8rem";
+const DASHBOARD_LAPTOP_FONT_SIZE = "1rem";
 
 // FONT
 const FONT_COLOR = "rgb(203, 203, 203)";
@@ -77,4 +81,6 @@ export {
   FAVORITE_SYMBOL_BACKGROUND_COLOR,
   FAVORITE_MOVIE_SYMBOL,
   MESSAGE_DURATION,
+  DASHBOARD_MOBILE_FONT_SIZE,
+  DASHBOARD_LAPTOP_FONT_SIZE,
 };

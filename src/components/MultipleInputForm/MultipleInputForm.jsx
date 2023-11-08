@@ -1,13 +1,5 @@
 import { LoadingAnimation } from "./LoadingAnimation";
-import { ErrorMessage, Message, SuccessMessage } from "../StyledComponents";
 
-import {
-  FormContainer,
-  FormButton,
-  FormInput,
-  StyledForm,
-  FormMessageStyledContainer,
-} from "./FormStyledComponents";
 import UserMessage from "../UserMessage";
 import { useState } from "react";
 import { MESSAGE_DURATION } from "../../globalVariables";
@@ -23,10 +15,10 @@ const MultipleInputForm = ({
   const [messageIsVisible, setMessageIsVisible] = useState(false);
 
   const onButtonClick = () => {
-      setMessageIsVisible(true);
-      setTimeout(() => {
-        setMessageIsVisible(false);
-      }, MESSAGE_DURATION);
+    setMessageIsVisible(true);
+    setTimeout(() => {
+      setMessageIsVisible(false);
+    }, MESSAGE_DURATION);
   };
 
   return (
