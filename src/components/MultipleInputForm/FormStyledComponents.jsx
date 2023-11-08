@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { StyledButton, StyledInput } from "../StyledComponents";
+import { ERROR_FONT_COLOR, SUCCESS_FONT_COLOR } from "../../globalVariables";
 
 const FormButton = styled(StyledButton)`
   background-color: gray;
@@ -7,6 +8,7 @@ const FormButton = styled(StyledButton)`
 
 const FormInput = styled(StyledInput)`
   color: white;
+  background-color: gray;
 `;
 
 const FormContainer = styled.div`
@@ -25,8 +27,6 @@ const StyledForm = styled.form`
   align-items: center;
   /* margin-left: 30%; */
   width: 100%;
-  /* position: fixed;
-  top: 1rem; */
   padding: 0.5rem 0 0.5rem 0;
 `;
 

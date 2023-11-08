@@ -1,19 +1,23 @@
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
-import { BUTTON_FONT_SIZE, FONT_COLOR, FONT_WEIGHT } from "../globalVariables";
+import {
+  BUTTON_FONT_SIZE,
+  ERROR_FONT_COLOR,
+  FONT_COLOR,
+  FONT_WEIGHT,
+  SECTION_TITLE_FONT_SIZE,
+  SMALL_FONT_SIZE,
+  SUCCESS_FONT_COLOR,
+} from "../globalVariables";
 // import * as palette from '..globalVariables.js';
 
-const FormMessage = styled.p`
-  color: #ff8000;
+const Message = styled.p`
+  color: ${FONT_COLOR};
   font-size: 0.6rem;
   margin: 0;
   white-space: pre;
   /* word-wrap: break-word; */
   /* height: 3rem; */
-`;
-
-const ErrorMessage = styled.h3`
-  color: orange;
 `;
 
 const StyledInput = styled.input`
@@ -33,7 +37,7 @@ const StyledInput = styled.input`
 `;
 
 const StyledButton = styled.button`
-  padding: 0.3rem ;
+  padding: 0.3rem;
   height: 2rem;
   box-sizing: border-box;
   font-weight: ${FONT_WEIGHT};
@@ -69,12 +73,47 @@ const SectionContainer = styled.section`
   gap: 0.5rem;
 `;
 
+const SuccessMessage = styled(Message)`
+  color: ${SUCCESS_FONT_COLOR};
+`;
+
+const ErrorMessage = styled(Message)`
+  color: ${ERROR_FONT_COLOR};
+`;
+
+const StyledInfo = styled.label`
+  font-size: ${SMALL_FONT_SIZE};
+  text-align: justify; 
+  color: white;
+  text-align: left;
+`;
+
+const SectionTitle = styled.h3`
+  font-size: ${SECTION_TITLE_FONT_SIZE};
+
+  color: ${FONT_COLOR};
+  text-align: left;
+`;
+
+const SmallImage = styled.img`
+  display: block;
+  width: 80px;
+  height: auto;
+`;
+
+const ImageAndTextContainer = styled.div``;
+
 export {
-  FormMessage,
-  ErrorMessage,
+  Message,
   StyledInput,
   StyledButton,
   StyledLink,
   SectionContainer,
   StyledSelect,
+  ErrorMessage,
+  SuccessMessage,
+  StyledInfo,
+  SectionTitle,
+  SmallImage,
+  ImageAndTextContainer,
 };

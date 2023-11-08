@@ -9,8 +9,8 @@ import { useGetAPIData } from "../../components/UseGetAPIData";
 const LoginForm = () => {
   const navigate = useNavigate();
   const { setUser, setAuth } = useUser();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("Insert email");
+  const [password, setPassword] = useState("Insert password");
 
   const { data: userData, submitRequest, newFetch } = useGetAPIData();
 
@@ -23,9 +23,11 @@ const LoginForm = () => {
     }
   };
 
-  const onLoginSubmit = async (e) => {
+  const onLoginSubmit = (e) => {
     e.preventDefault();
-    newFetch({ apiParams: [email, password], apiRequest: logUserInAPI });
+    newFetch({ apiParams: {email, password}, apiRequest: logUserInAPI });
+    console.log('but Search')
+
   };
 
   useEffect(() => {
@@ -45,9 +47,23 @@ const LoginForm = () => {
     }
   }, [userData]);
 
+  
+  const handleClick = (e) => {
+    if (e.target.name == "email") {
+      setEmail('');
+    }
+    if (e.target.name == "password") {
+      setPassword('');
+    }
+   
+  };
+  
+  
+
   return (
     <MultipleInputForm
       onFormSubmit={onLoginSubmit}
+      handleClick={handleClick}
       inputs={[
         { name: "email", type: "email", value: email },
         { name: "password", type: "password", value: password },

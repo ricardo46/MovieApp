@@ -22,7 +22,7 @@ const HomeSearchMoviesFormContainer = styled.section`
       box-shadow: 0px 0px 2px ${FONT_COLOR};
       /* border: none; */
     }
-    @media (width > 768px) {
+    @media (min-width: 768px) {
       position: fixed;
       translate: 0 -2rem;
       width: 50%;

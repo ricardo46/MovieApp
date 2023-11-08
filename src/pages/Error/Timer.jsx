@@ -11,4 +11,4 @@ function MyTimer({ expiryTimestamp, updateCount }) {
   }, [seconds]);
 }
 
-export { MyTimer };
+// export { MyTimer };

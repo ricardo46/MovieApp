@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { usePage } from "../../context/PageContext";
 import RegisterForm from "./RegisterForm";
+import { REGISTER_PAGE_NAME } from "../../globalVariables";
 
 const Register = () => {
   const { subPageData, setSubPageData } = usePage();
   useEffect(() => {
-    setSubPageData(() => ({ name: `${location.pathname.slice(1,2).toUpperCase()}${location.pathname.slice(2)} Page` }));
+    setSubPageData(() => ({ name: REGISTER_PAGE_NAME }));
   }, []);
   return (
     <>

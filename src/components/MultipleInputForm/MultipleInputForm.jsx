@@ -1,25 +1,46 @@
-import { LoadingAnimation } from "../LoadingAnimation";
+import { LoadingAnimation } from "./LoadingAnimation";
+import { ErrorMessage, Message, SuccessMessage } from "../StyledComponents";
 
-import { FormMessage } from "../StyledComponents";
-import { FormContainer, FormButton, FormInput, StyledForm, FormMessageStyledContainer } from "./FormStyledComponents";
+import {
+  FormContainer,
+  FormButton,
+  FormInput,
+  StyledForm,
+  FormMessageStyledContainer,
+} from "./FormStyledComponents";
+import TimedComponent from "../TimedComponent";
+import UserMessage from "../UserMessage";
+import { useState } from "react";
+import { MESSAGE_DURATION } from "../../globalVariables";
 
 const MultipleInputForm = ({
-  //   updateMovies,
   inputs,
   onFormSubmit,
   submitRequest,
   submitButtonName,
   onInputChange,
+  handleClick,
 }) => {
+  const [messageIsVisible, setMessageIsVisible] = useState(false);
+
+  const onButtonClick = () => {
+      setMessageIsVisible(true);
+      setTimeout(() => {
+        setMessageIsVisible(false);
+      }, MESSAGE_DURATION);
+  };
+
   return (
     <>
+      {submitRequest.error &&
+        console.log("submitRequest.errorMessage", submitRequest.errorMessage)}
       <StyledForm
         onSubmit={(e) => {
           onFormSubmit(e);
         }}
       >
         <FormContainer>
-          <FormButton>{submitButtonName}</FormButton>
+          <FormButton onClick={onButtonClick}>{submitButtonName}</FormButton>
           {inputs.map((input) => (
             <FormInput
               key={input.name}
@@ -27,21 +48,30 @@ const MultipleInputForm = ({
               name={input.name}
               value={input.value}
               onChange={onInputChange}
+              onClick={handleClick}
             />
           ))}
         </FormContainer>
 
-        <FormMessageStyledContainer>
-          {submitRequest?.message && (
-            <FormMessage>{submitRequest.message}</FormMessage>
-          )}
-          {submitRequest?.errorMessage && (
-            <FormMessage>{submitRequest.errorMessage}</FormMessage>
-          )}
-          {submitRequest.isLoading && (
-            <LoadingAnimation submitRequest={submitRequest} />
-          )}
-        </FormMessageStyledContainer>
+        {messageIsVisible && (
+          <FormMessageStyledContainer>
+            {submitRequest.error ? (
+              <UserMessage
+                type={"error"}
+                messageContent={submitRequest.errorMessage}
+              />
+            ) : (
+              <UserMessage
+                type={"success"}
+                messageContent={submitRequest.message}
+              />
+            )}
+
+            {submitRequest?.isLoading && (
+              <LoadingAnimation submitRequest={submitRequest} />
+            )}
+          </FormMessageStyledContainer>
+        )}
       </StyledForm>
     </>
   );

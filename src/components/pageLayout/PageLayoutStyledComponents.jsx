@@ -1,9 +1,14 @@
 import styled from "@emotion/styled";
-import { StyledLink } from "../StyledComponents";
+import { Message, StyledLink } from "../StyledComponents";
+import {
+  DASHBOARD_BACKGROUND_COLOR,
+  DASHBOARD_MESSAGE_FONT_COLOR,
+  PAGE_BACKGROUND_COLOR,
+} from "../../globalVariables";
 
 const PageContainer = styled.div`
   margin: 0;
-  background-color: #2e2e2e;
+  background-color: ${PAGE_BACKGROUND_COLOR};
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -11,7 +16,6 @@ const PageContainer = styled.div`
   justify-content: start;
   box-sizing: border-box;
   align-items: center;
-  
 `;
 
 const DashBoard = styled.div`
@@ -26,7 +30,7 @@ const DashBoard = styled.div`
   height: 4rem;
   width: 100%;
   overflow-x: hidden;
-  background-color: #313131b4;
+  background-color: ${DASHBOARD_BACKGROUND_COLOR};
 `;
 
 const DashBoardLinksContainer = styled.div`
@@ -38,10 +42,10 @@ const DashBoardLinksContainer = styled.div`
   gap: 0.5rem;
 `;
 
-const DashBoardMessage = styled.p`
+const DashBoardMessage = styled(Message)`
   margin: 0;
   padding: 0;
-  color: white;
+  color: ${DASHBOARD_MESSAGE_FONT_COLOR};
   font-size: 0.8rem;
   grid-column-start: span 3;
   justify-self: end;

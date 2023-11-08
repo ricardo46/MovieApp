@@ -1,7 +1,13 @@
-import MovieCard from "../movieCardComponent/MovieCardComponent";
+import MovieCard from "../MovieCardComponent/MovieCardComponent";
 import { MovieLink, MoviesList } from "./MoviesStyledComponents";
 
-const Movies = ({ movies, displayType, favoriteSymbol, addFavoriteMovie }) => {
+const Movies = ({
+  currentMovieId,
+  movies,
+  displayType,
+  favoriteSymbol,
+  addFavoriteMovie,
+}) => {
   // console.log("movies", movies);
   return (
     <>
@@ -9,9 +15,19 @@ const Movies = ({ movies, displayType, favoriteSymbol, addFavoriteMovie }) => {
         <MoviesList displayType={displayType}>
           {movies.map((movie) => {
             return (
-              <MovieLink key={movie.id} to={"/" + movie.id + "/"}>
-                <MovieCard movie={movie} size={"small"} favoriteSymbol={favoriteSymbol} symbolOnclickEvent={addFavoriteMovie} />
-              </MovieLink>
+              <>
+                {movie.id != currentMovieId && (
+                  <MovieLink key={movie.id} to={"/movies/" + movie.id}>
+                    <MovieCard
+                      currentMovieId={currentMovieId}
+                      movie={movie}
+                      size={"small"}
+                      favoriteSymbol={favoriteSymbol}
+                      symbolOnclickEvent={addFavoriteMovie}
+                    />
+                  </MovieLink>
+                )}
+              </>
             );
           })}
         </MoviesList>

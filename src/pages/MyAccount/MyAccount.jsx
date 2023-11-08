@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
-import { usePage } from "../../context/PageContext";
-import Movies from "../../components/moviesComponent/Movies";
-import SearchMoviesForm from "../../components/moviesComponent/SearchMoviesForm";
+import { usePage } from "../../Context/PageContext";
+import Movies from "../../components/MoviesComponent/Movies";
+import SearchMoviesForm from "../../components/MoviesComponent/SearchMoviesForm";
 import {
-  FormMessage,
+  ErrorMessage,
   SectionContainer,
+  SuccessMessage,
 } from "../../components/StyledComponents";
-import UserLists from "../../components/userLists/UserLists";
-import FavoriteSymbol from "../../components/movieCardComponent/FavoriteSymbol";
-import { useUser } from "../../context/UserContext";
+import UserLists from "./UserLists";
+import FavoriteSymbol from "../../components/MovieCardComponent/FavoriteSymbol";
 import { movieExistsInList } from "./utils";
 import { patchListWithMovie } from "../../utils/apiUtils";
 import { updateMovieObjectList } from "./MyAccountUtils";
+import { MY_ACCOUNT_PAGE_NAME } from "../../globalVariables";
+import { useUser } from "../../context/UserContext";
 
 const MyAccount = () => {
   const { setSubPageData } = usePage();
@@ -24,7 +26,7 @@ const MyAccount = () => {
 
   const movieLists = user.movieLists;
 
-  const [movieListObj, setMovieListObj] = useState({});
+  const [movieListObj, setMovieListObj] = useState(movieLists[0]);
   const [submitRequest, setSubmitRequest] = useState({
     isLoading: false,
     submitted: false,
@@ -33,9 +35,7 @@ const MyAccount = () => {
 
   useEffect(() => {
     setSubPageData(() => ({
-      name: `${location.pathname
-        .slice(1, 2)
-        .toUpperCase()}${location.pathname.slice(2)} Page`,
+      name: MY_ACCOUNT_PAGE_NAME,
     }));
   }, []);
 
@@ -44,7 +44,7 @@ const MyAccount = () => {
     setSubmitRequest({
       isLoading: true,
     });
-    if (movieListObj.id) {
+    if (movieListObj?.id) {
       console.log("This movie will be added to the list", movie);
       console.log("movieListObj", movieListObj);
 
@@ -53,21 +53,23 @@ const MyAccount = () => {
           `movie ${movie.title} already exists in ${movieListObj.name}`
         );
         setSubmitRequest({
-          error: false,
+          error: true,
           submitted: true,
           isLoading: false,
           message: `movie ${movie.title} already exists in ${movieListObj.name}`,
         });
       } else {
+        setSubmitRequest({
+          isLoading: true,
+        });
         try {
           const response = await patchListWithMovie(movieListObj.id, [
             {
               movie_id: movie.id,
             },
           ]);
-          console.log("response222", response);
 
-          updateMovieObjectList(movie,movieListObj,setMovieListObj)
+          updateMovieObjectList(movie, movieListObj, setMovieListObj);
 
           setSubmitRequest({
             error: false,
@@ -80,15 +82,14 @@ const MyAccount = () => {
           setSubmitRequest({
             error: true,
             submitted: true,
-            errorMessage: err.response.data.message,
+            message: err.response.data.message,
             isLoading: false,
           });
         }
       }
     } else {
-      console.log("No list selected! To add a movie select a list.");
       setSubmitRequest({
-        error: false,
+        error: true,
         submitted: true,
         message: "No list selected! To add a movie select a list.",
         isLoading: false,
@@ -101,22 +102,22 @@ const MyAccount = () => {
       list.id == movieListObj.id ? movieListObj : list
     );
 
-
-    updateUser({movieLists: newMovieLists})
-
+    updateUser({ movieLists: newMovieLists });
   }, [movieListObj]);
 
   return (
     <>
       <SectionContainer>
         <UserLists
+          movieListObj={movieListObj}
           setMovieListObj={setMovieListObj}
-          // movieList={movieList}
         />
-        {console.log("movieListObj.list", movieListObj.list)}
-        <Movies movies={movieListObj.list} size="small" />
-        <FormMessage>{submitRequest.message}</FormMessage>
-        <FormMessage>{submitRequest.errorMessage}</FormMessage>
+        <Movies movies={movieListObj?.list} size="small" />
+        {submitRequest.error ? (
+          <ErrorMessage>{submitRequest.message}</ErrorMessage>
+        ) : (
+          <SuccessMessage>{submitRequest.message}</SuccessMessage>
+        )}
       </SectionContainer>
       <SectionContainer>
         <SearchMoviesForm updateMovies={updateMovies} />

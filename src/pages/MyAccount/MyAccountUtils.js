@@ -10,4 +10,4 @@ const updateMovieListObj = (newData, setMovieListObj) => {
   }));
 };
 
-export { updateMovieObjectList };
+export { updateMovieObjectList, updateMovieListObj };

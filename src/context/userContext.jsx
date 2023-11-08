@@ -5,7 +5,7 @@ const UserContext = createContext({});
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState({});
 
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState(null);
 
   const updateUser = (newData) => {
     setUser((prev) => ({

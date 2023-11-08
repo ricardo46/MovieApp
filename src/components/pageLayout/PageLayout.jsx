@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 
 import { useUser } from "../../context/UserContext";
 import { getLocalStorageItem } from "../../utils/localStorageUtils";
@@ -18,7 +18,21 @@ import {
   getUserInAPI,
   responseStatusIsRequestsLimit,
 } from "../../utils/apiUtils";
-import { useError } from "../../context/ErrorContext";
+import {
+  APP_NAME,
+  HOME_LINK_NAME,
+  LOGIN_LINK_NAME,
+  LOGOUT_LINK_NAME,
+  MY_ACCOUNT_LINK_NAME,
+  REGISTER_LINK_NAME,
+} from "../../globalVariables";
+import {
+  currentPageIsHome,
+  currentPageIsLogin,
+  currentPageIsMyAccount,
+  currentPageIsRegister,
+} from "./PageLayoutUtils";
+// import { useError } from "../../context/ErrorContext";
 
 const UserWelcomeMessage = ({ apiResponse }) => {
   const { user } = useUser();
@@ -34,10 +48,11 @@ const UserWelcomeMessage = ({ apiResponse }) => {
 };
 
 const PageLayout = () => {
+  const location = useLocation();
   const navigate = useNavigate();
-  const { user, setUser, auth, setAuth } = useUser();
+  const { setUser, auth, setAuth } = useUser();
   const { subPageData, setSubPageData } = usePage();
-  const { error, setError } = useError();
+  // const { error, setError } = useError();
 
   const [apiResponse, setApiResponse] = useState({ responseReceived: false });
   const subPageName = subPageData.name;
@@ -65,15 +80,13 @@ const PageLayout = () => {
     } catch (err) {
       console.log("User not logged in!");
 
-      if (responseStatusIsRequestsLimit(err)) {
-        setError({
-          message: err.response.data.message,
-        });
-        navigate("/errorPage");
-      } else {
-        console.log("Token not valid", err);
-        localStorage.clear();
-      }
+      // if (responseStatusIsRequestsLimit(err)) {
+
+      //   navigate("/errorPage");
+      // } else {
+      //   console.log("Token not valid", err);
+      //   localStorage.clear();
+      // }
 
       setApiResponse((prev) => ({
         ...prev,
@@ -92,46 +105,53 @@ const PageLayout = () => {
     setUser({});
     localStorage.clear();
   };
-  
+
   return (
     <>
+      {/* {console.log("currentPageIsHome", currentPageIsHome(location))} */}
       {apiResponse.responseReceived && (
         <PageContainer>
           <DashBoard>
             <HeadersContainer>
-              <PageHeader>Movie App</PageHeader>
+              <PageHeader>{APP_NAME}</PageHeader>
               <PageHeader>{subPageName}</PageHeader>
             </HeadersContainer>
-            {!error.status && (
-              <DashBoardLinksContainer>
-                <DashBoardStyledLink to="/">Home</DashBoardStyledLink>
-                {!auth && (
-                  <DashBoardStyledLink to="/login">login</DashBoardStyledLink>
-                )}
+            {/* {!error.status && ( */}
+            <DashBoardLinksContainer>
+              {!currentPageIsHome(location) && (
+                <DashBoardStyledLink to="/">
+                  {HOME_LINK_NAME}
+                </DashBoardStyledLink>
+              )}
+              {!currentPageIsLogin(location) && !auth && (
+                <DashBoardStyledLink to="/login">
+                  {LOGIN_LINK_NAME}
+                </DashBoardStyledLink>
+              )}
 
-                {!auth && (
-                  <DashBoardStyledLink to="/register">
-                    register
-                  </DashBoardStyledLink>
-                )}
+              {!currentPageIsRegister(location) && !auth && (
+                <DashBoardStyledLink to="/register">
+                  {REGISTER_LINK_NAME}
+                </DashBoardStyledLink>
+              )}
 
-                {auth && (
-                  <DashBoardStyledLink to="/myAccount">
-                    myAccount
-                  </DashBoardStyledLink>
-                )}
+              {!currentPageIsMyAccount(location) &&  auth && (
+                <DashBoardStyledLink to="/myAccount">
+                  {MY_ACCOUNT_LINK_NAME}
+                </DashBoardStyledLink>
+              )}
 
-                {auth && (
-                  <DashBoardStyledLink onClick={logOutEvent}>
-                    logout
-                  </DashBoardStyledLink>
-                )}
+              {auth && (
+                <DashBoardStyledLink onClick={logOutEvent}>
+                  {LOGOUT_LINK_NAME}
+                </DashBoardStyledLink>
+              )}
 
-                <DashBoardMessage>
-                  <UserWelcomeMessage apiResponse={apiResponse} />
-                </DashBoardMessage>
-              </DashBoardLinksContainer>
-            )}
+              <DashBoardMessage>
+                <UserWelcomeMessage apiResponse={apiResponse} />
+              </DashBoardMessage>
+            </DashBoardLinksContainer>
+            {/* // )} */}
           </DashBoard>
           <OutletContainer>
             <Outlet />

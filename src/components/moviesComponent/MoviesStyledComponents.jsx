@@ -16,10 +16,6 @@ const MoviesList = styled.ul`
   justify-content: center;
   border: solid red 2px;
   height: auto;
-  /* grid-auto-flow: ${({ displayType }) =>
-    displayType == "grid" ? "" : "column"}; */
-  /* overflow-x: ${({ displayType }) => (displayType == "grid" ? "" : "auto")};
-  max-width: ${({ displayType }) => (displayType == "grid" ? "100vw" : "")}; */
 
   max-width: 100vw;
 `;
