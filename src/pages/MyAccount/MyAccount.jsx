@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { usePage } from "../../Context/PageContext";
-import Movies from "../../components/MoviesComponent/Movies";
-import SearchMoviesForm from "../../components/MoviesComponent/SearchMoviesForm";
+import Movies from "../../components/Movies/Movies";
+import SearchMoviesForm from "../../components/Movies/SearchMoviesForm";
 import {
   ErrorMessage,
   SectionContainer,
   SuccessMessage,
 } from "../../components/StyledComponents";
 import UserLists from "./UserLists";
-import FavoriteSymbol from "../../components/MovieCardComponent/FavoriteSymbol";
+import FavoriteSymbol from "../../components/MovieCard/FavoriteSymbol";
 import { movieExistsInList } from "./utils";
 import { patchListWithMovie } from "../../utils/apiUtils";
 import { updateMovieObjectList } from "./MyAccountUtils";

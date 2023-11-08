@@ -1,5 +1,5 @@
 import { FAVORITE_MOVIE_SYMBOL } from "../../globalVariables";
-import { FavoriteSymbolStyled } from "./MovieCardStyledComponent";
+import { FavoriteSymbolStyled } from "./MovieCardStyledComponents";
 
 const FavoriteSymbol = () => {
   return <FavoriteSymbolStyled>{FAVORITE_MOVIE_SYMBOL}</FavoriteSymbolStyled>;

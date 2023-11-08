@@ -10,7 +10,7 @@ import { UserProvider } from "./context/UserContext";
 import Register from "./pages/Register/Register";
 
 import PageLayout from "./components/pageLayout/PageLayout";
-import { PageProvider } from "./context/PageContext";
+import { PageProvider } from "./Context/PageContext";
 import MoviePage from "./pages/Movie/Movie";
 // import { ErrorProvider } from "./context/ErrorContext";
 import Home from "./pages/Home/Home";

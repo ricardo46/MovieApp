@@ -8,7 +8,6 @@ import {
   StyledForm,
   FormMessageStyledContainer,
 } from "./FormStyledComponents";
-import TimedComponent from "../TimedComponent";
 import UserMessage from "../UserMessage";
 import { useState } from "react";
 import { MESSAGE_DURATION } from "../../globalVariables";

@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { getMoviesDataFromAPI } from "../../utils/apiUtils";
 import MultipleInputForm from "../MultipleInputForm/MultipleInputForm";
 import { useGetAPIData } from "../UseGetAPIData";
-import { ErrorMessage } from "../StyledComponents";
 import UserMessage from "../UserMessage";
-import TimedComponent from "../TimedComponent";
 import { MESSAGE_DURATION } from "../../globalVariables";
 
 const SearchMoviesForm = ({ updateMovies }) => {

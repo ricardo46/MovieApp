@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
-import MovieCard from "../../components/MovieCardComponent/MovieCardComponent";
+import { useNavigate, useParams } from "react-router-dom";
+import MovieCard from "../../components/MovieCard/MovieCard";
 import { usePage } from "../../Context/PageContext";
 import {
   BigMovieContainer,
   MoviesContainer,
 } from "./MoviePageStyledComponents";
 import { SectionContainer } from "../../components/StyledComponents";
-import Movies from "../../components/MoviesComponent/Movies";
+import Movies from "../../components/Movies/Movies";
 import { useGetAPIData } from "../../components/UseGetAPIData";
 import { getMovieDataFromAPI } from "../../utils/apiUtils";
-import { Director } from "./Director";
 
 const MoviePage = () => {
   const navigate = useNavigate();
@@ -27,10 +26,6 @@ const MoviePage = () => {
     const directorMovies = movieData?.director?.movieList;
     setMovies(directorMovies);
   };
-
-  // useEffect(() => {
-  //   newFetch({ apiParams: [movieId], apiRequest: getMovieDataFromAPI });
-  // }, []);
 
   useEffect(() => {
     newFetch({ apiParams: [movieId], apiRequest: getMovieDataFromAPI });

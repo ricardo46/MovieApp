@@ -1,4 +1,4 @@
-import MovieCard from "../MovieCardComponent/MovieCardComponent";
+import MovieCard from "../MovieCard/MovieCard";
 import { MovieLink, MoviesList } from "./MoviesStyledComponents";
 
 const ids = [];

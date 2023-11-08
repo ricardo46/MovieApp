@@ -2,7 +2,12 @@ import styled from "@emotion/styled";
 
 import { BACKGROUND_COLOR_ONE } from "../../globalVariables";
 import { SmallImage } from "../../components/StyledComponents";
-import { CardImage, CardImageContainer, InfoContainer, MovieContainer } from "../../components/movieCardComponent/MovieCardStyledComponent";
+import {
+  CardImage,
+  CardImageContainer,
+  InfoContainer,
+  MovieContainer,
+} from "../../components/MovieCard/MovieCardStyledComponents";
 
 const BigMovieContainer = styled.div`
   display: flex;

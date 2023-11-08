@@ -6,7 +6,7 @@ import {
   FavoriteSymbolContainer,
   InfoContainer,
   MovieContainer,
-} from "./MovieCardStyledComponent";
+} from "./MovieCardStyledComponents";
 import { Director } from "../../pages/Movie/Director";
 const MovieCard = ({
   showDirector,

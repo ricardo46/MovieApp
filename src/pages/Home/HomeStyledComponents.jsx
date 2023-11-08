@@ -5,7 +5,6 @@ import {
   FormInput,
 } from "../../components/MultipleInputForm/FormStyledComponents";
 import { FONT_COLOR } from "../../globalVariables";
-import { MoviesList } from "../../components/moviesComponent/MoviesStyledComponents";
 
 const HomeSearchMoviesFormContainer = styled.section`
   z-index: 5;

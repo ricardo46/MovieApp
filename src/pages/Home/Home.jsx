@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { usePage } from "../../context/PageContext";
-import Movies from "../../components/moviesComponent/Movies";
-import SearchMoviesForm from "../../components/moviesComponent/SearchMoviesForm";
+import { usePage } from "../../Context/PageContext";
+import Movies from "../../components/Movies/Movies";
+import SearchMoviesForm from "../../components/Movies/SearchMoviesForm";
 import { HomeSearchMoviesFormContainer } from "./HomeStyledComponents";
 import { HOME_PAGE_NAME } from "../../globalVariables";
 
