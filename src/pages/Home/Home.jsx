@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { usePage } from "../../Context/PageContext";
+import { usePage } from "../../context/PageContext";
 import Movies from "../../components/Movies/Movies";
-import SearchMoviesForm from "../../components/Movies/SearchMoviesForm";
+import SearchMoviesForm from "../../components/SearchMoviesForm/SearchMoviesForm";
 import { HomeSearchMoviesFormContainer } from "./HomeStyledComponents";
 import { HOME_PAGE_NAME } from "../../globalVariables";
+import { SectionContainer } from "../../components/StyledComponents";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -18,10 +19,15 @@ const Home = () => {
 
   return (
     <>
-      <HomeSearchMoviesFormContainer>
-        <SearchMoviesForm updateMovies={updateMovies} />
-      </HomeSearchMoviesFormContainer>
-      <Movies movies={movies} displayType={"grid"} />
+      <SectionContainer>
+        <HomeSearchMoviesFormContainer>
+          <SearchMoviesForm updateMovies={updateMovies} />
+        </HomeSearchMoviesFormContainer>
+      </SectionContainer>
+
+      <SectionContainer>
+        <Movies movies={movies} displayType={"grid"} />
+      </SectionContainer>
     </>
   );
 };

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { StyledButton, StyledInput } from "../StyledComponents";
 
 const FormButton = styled(StyledButton)`
   background-color: gray;
@@ -6,7 +7,7 @@ const FormButton = styled(StyledButton)`
 
 const FormInput = styled(StyledInput)`
   color: white;
-  background-color: gray;
+  background-color: black;
 `;
 
 const FormContainer = styled.div`

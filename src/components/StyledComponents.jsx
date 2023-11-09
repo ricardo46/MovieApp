@@ -48,11 +48,17 @@ const StyledButton = styled.button`
 `;
 
 const StyledSelect = styled.select`
-  padding: 0 0 0 0.5rem;
+  /* padding: 0 1rem 0 0.5rem; */
+  border-radius: 1rem;
+
   height: 2rem;
   box-sizing: border-box;
   font-weight: 400;
   font-size: 0.8rem;
+  color: ${FONT_COLOR};
+  border: gray 5px solid;
+  text-align: center;
+  background-color: gray;
 `;
 
 const StyledLink = styled(NavLink)`
@@ -61,13 +67,13 @@ const StyledLink = styled(NavLink)`
 `;
 
 const SectionContainer = styled.section`
-  width: 95vw;
-  padding: 1rem;
+  width: 100%;
+  padding:0 1rem 1rem;
   display: flex;
   flex-direction: column;
   /* align-items: center; */
   justify-content: center;
-  border: 2px green solid;
+  /* border: 2px green solid; */
   box-sizing: border-box;
   overflow-x: auto;
   gap: 0.5rem;

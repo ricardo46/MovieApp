@@ -5,8 +5,9 @@ import {
   DASHBOARD_LAPTOP_FONT_SIZE,
   DASHBOARD_MOBILE_FONT_SIZE,
   PAGE_BACKGROUND_COLOR,
+  FONT_COLOR,
 } from "../../globalVariables";
-import { Message } from "../StyledComponents";
+import { Message, StyledLink } from "../StyledComponents";
 
 const PageContainer = styled.div`
   margin: 0;
@@ -21,11 +22,11 @@ const PageContainer = styled.div`
 `;
 
 const DashBoard = styled.div`
-  width: 95vw;
-  margin: 0;
+  width: 100%;
+  margin: 0 0 1rem;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem 0 0.5rem;
+  padding: 0.5rem 1rem 0.5rem;
   box-sizing: border-box;
   position: sticky;
   z-index: 10;
@@ -45,7 +46,7 @@ const DashBoardLinksContainer = styled.div`
   justify-content: start;
   grid-template-columns: repeat(3, auto);
   gap: 0.3rem;
-  @media (min-width: 768px) {
+  @media (min-width: 690px) {
     gap: 0.5rem;
   }
 `;
@@ -60,13 +61,13 @@ const DashBoardMessage = styled(Message)`
 `;
 
 const PageHeader = styled.h3`
-  color: white;
+  color: ${FONT_COLOR};
   padding: 0;
   margin: 0;
   font-size: ${DASHBOARD_MOBILE_FONT_SIZE};
   font-weight: 300;
 
-  @media (min-width: 768px) {
+  @media (min-width: 690px) {
     font-size: ${DASHBOARD_LAPTOP_FONT_SIZE};
   }
 `;
@@ -75,7 +76,7 @@ const DashBoardStyledLink = styled(StyledLink)`
   color: #0073ff;
   font-size: ${DASHBOARD_MOBILE_FONT_SIZE};
   padding-left: 0.3rem;
-  @media (min-width: 768px) {
+  @media (min-width: 690px) {
     font-size: ${DASHBOARD_LAPTOP_FONT_SIZE};
   }
 `;
@@ -84,7 +85,7 @@ const HeadersContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-  @media (min-width: 768px) {
+  @media (min-width: 690px) {
     gap: 0.5rem;
   }
 `;

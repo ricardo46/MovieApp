@@ -4,6 +4,7 @@ import MultipleInputForm from "../MultipleInputForm/MultipleInputForm";
 import { useGetAPIData } from "../UseGetAPIData";
 import UserMessage from "../UserMessage";
 import { MESSAGE_DURATION } from "../../globalVariables";
+import { SearchMoviesFormContainer } from "./SearchMoviesFormStyledComponents";
 
 const SearchMoviesForm = ({ updateMovies }) => {
   const [inputValue, setInputValue] = useState("");
@@ -40,6 +41,7 @@ const SearchMoviesForm = ({ updateMovies }) => {
 
   return (
     <>
+    <SearchMoviesFormContainer>
       <MultipleInputForm
         onFormSubmit={onSearchSubmit}
         inputs={[{ name: "MovieName", type: "text", value: inputValue }]}
@@ -51,6 +53,7 @@ const SearchMoviesForm = ({ updateMovies }) => {
       {moviesData.itemsReceived == 0 && messageIsVisible && (
         <UserMessage type={'error'} messageContent={`Movie ${previousInput} not found`} />
       )}
+      </SearchMoviesFormContainer>
     </>
   );
 };

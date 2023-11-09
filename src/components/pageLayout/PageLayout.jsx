@@ -13,7 +13,7 @@ import {
   DashBoardLinksContainer,
 } from "./PageLayoutStyledComponents";
 import { useEffect, useState } from "react";
-import { usePage } from "../../Context/PageContext";
+import { usePage } from "../../context/PageContext";
 import { getUserInAPI } from "../../utils/apiUtils";
 import {
   APP_NAME,
@@ -23,7 +23,12 @@ import {
   MY_ACCOUNT_LINK_NAME,
   REGISTER_LINK_NAME,
 } from "../../globalVariables";
-import { currentPageIsHome, currentPageIsLogin, currentPageIsMyAccount, currentPageIsRegister } from "./PageLayoutUtils";
+import {
+  currentPageIsHome,
+  currentPageIsLogin,
+  currentPageIsMyAccount,
+  currentPageIsRegister,
+} from "./PageLayoutUtils";
 
 // import { useError } from "../../context/ErrorContext";
 
@@ -111,35 +116,35 @@ const PageLayout = () => {
             {/* {!error.status && ( */}
             <DashBoardLinksContainer>
               <div>
-              {!currentPageIsHome(location) && (
-                <DashBoardStyledLink to="/">
-                  {HOME_LINK_NAME}
-                </DashBoardStyledLink>
-              )}
-              {!currentPageIsLogin(location) && !auth && (
-                <DashBoardStyledLink to="/login">
-                  {LOGIN_LINK_NAME}
-                </DashBoardStyledLink>
-              )}
+                {!currentPageIsHome(location) && (
+                  <DashBoardStyledLink to="/">
+                    {HOME_LINK_NAME}
+                  </DashBoardStyledLink>
+                )}
+                {!currentPageIsLogin(location) && !auth && (
+                  <DashBoardStyledLink to="/login">
+                    {LOGIN_LINK_NAME}
+                  </DashBoardStyledLink>
+                )}
 
-              {!currentPageIsRegister(location) && !auth && (
-                <DashBoardStyledLink to="/register">
-                  {REGISTER_LINK_NAME}
-                </DashBoardStyledLink>
-              )}
+                {!currentPageIsRegister(location) && !auth && (
+                  <DashBoardStyledLink to="/register">
+                    {REGISTER_LINK_NAME}
+                  </DashBoardStyledLink>
+                )}
 
-              {!currentPageIsMyAccount(location) && auth && (
-                <DashBoardStyledLink to="/myAccount">
-                  {MY_ACCOUNT_LINK_NAME}
-                </DashBoardStyledLink>
-              )}
+                {!currentPageIsMyAccount(location) && auth && (
+                  <DashBoardStyledLink to="/myAccount">
+                    {MY_ACCOUNT_LINK_NAME}
+                  </DashBoardStyledLink>
+                )}
 
-              {auth && (
-                <DashBoardStyledLink onClick={logOutEvent}>
-                  {LOGOUT_LINK_NAME}
-                </DashBoardStyledLink>
-              )}
-</div>
+                {auth && (
+                  <DashBoardStyledLink onClick={logOutEvent}>
+                    {LOGOUT_LINK_NAME}
+                  </DashBoardStyledLink>
+                )}
+              </div>
               <DashBoardMessage>
                 <UserWelcomeMessage apiResponse={apiResponse} />
               </DashBoardMessage>

@@ -10,7 +10,7 @@ import { UserProvider } from "./context/UserContext";
 import Register from "./pages/Register/Register";
 
 import PageLayout from "./components/pageLayout/PageLayout";
-import { PageProvider } from "./Context/PageContext";
+import { PageProvider } from "./context/PageContext";
 import MoviePage from "./pages/Movie/Movie";
 // import { ErrorProvider } from "./context/ErrorContext";
 import Home from "./pages/Home/Home";
@@ -19,7 +19,13 @@ import MyAccount from "./pages/MyAccount/MyAccount";
 // import ErrorPage from "./pages/Error/ErrorPage";
 import PrivateRoutes from "./redirectRoutes/PrivateRoutes";
 import PublicRoutes from "./redirectRoutes/PublicRoutes";
-import { HOME_PATH, LOGIN_PATH, MOVIE_PATH, MY_ACCOUNT_PATH, REGISTER_PATH } from "./globalVariables";
+import {
+  HOME_PATH,
+  LOGIN_PATH,
+  MOVIE_PATH,
+  MY_ACCOUNT_PATH,
+  REGISTER_PATH,
+} from "./globalVariables";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

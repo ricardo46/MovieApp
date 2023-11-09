@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import MovieCard from "../../components/MovieCard/MovieCard";
-import { usePage } from "../../Context/PageContext";
+import { usePage } from "../../context/PageContext";
 import {
   BigMovieContainer,
   MoviesContainer,
@@ -20,8 +20,6 @@ const MoviePage = () => {
   const { data: movieData, submitRequest, newFetch } = useGetAPIData();
 
   const setMovieData = () => {
-    console.log("movieData", movieData);
-
     setMovie(movieData);
     const directorMovies = movieData?.director?.movieList;
     setMovies(directorMovies);

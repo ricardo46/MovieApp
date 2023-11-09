@@ -14,7 +14,7 @@ const MoviesList = styled.ul`
   grid-template-columns: repeat(auto-fit, 150px);
   gap: 1rem;
   justify-content: center;
-  border: solid red 2px;
+  /* border: solid red 2px; */
   height: auto;
 
   max-width: 100vw;

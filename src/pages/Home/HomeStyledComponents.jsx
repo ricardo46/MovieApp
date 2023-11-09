@@ -1,46 +1,41 @@
 import styled from "@emotion/styled";
 import {
-  FormButton,
   FormContainer,
-  FormInput,
+  StyledForm,
 } from "../../components/MultipleInputForm/FormStyledComponents";
-import { FONT_COLOR } from "../../globalVariables";
+import { SearchMoviesFormContainer } from "../../components/SearchMoviesForm/SearchMoviesFormStyledComponents";
 
 const HomeSearchMoviesFormContainer = styled.section`
-  z-index: 5;
-  position: relative;
+  z-index: 10;
+  /* position: relative; */
+
+  ${SearchMoviesFormContainer} {
+    @media (min-width: 690px) {
+      height: 0;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  ${StyledForm} {
+    @media (min-width: 690px) {
+      height: 0;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
   ${FormContainer} {
+    position: fixed;
     display: flex;
     flex-direction: row;
-    gap: 0;
-    border-radius: 1rem;
-    /* border: solid red 2px; */
-    width: 70%;
+    justify-content: center;
+    width: 90%;
 
-    &:focus-within {
-      box-shadow: 0px 0px 2px ${FONT_COLOR};
-      /* border: none; */
+    @media (min-width: 690px) {
+      translate: 0 -2.5rem;
+      width: 50vw;
     }
-    @media (min-width: 768px) {
-      position: fixed;
-      translate: 0 -2rem;
-      width: 50%;
-    }
-  }
-  ${FormButton} {
-    background-color: rgb(0, 0, 0);
-    border-radius: 1rem 0 0 1rem;
-    /* width: 20%; */
-    border: none;
-    padding-left: 0.7rem;
-  }
-  ${FormInput} {
-    background-color: black;
-
-    border-radius: 0 1rem 1rem 0;
-    width: 100%;
-    border: none;
-    padding-right: 0.7rem;
   }
 `;
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { usePage } from "../../Context/PageContext";
+import { usePage } from "../../context/PageContext";
 import Movies from "../../components/Movies/Movies";
-import SearchMoviesForm from "../../components/Movies/SearchMoviesForm";
+import SearchMoviesForm from "../../components/SearchMoviesForm/SearchMoviesForm";
 import {
   ErrorMessage,
   SectionContainer,
@@ -101,7 +101,6 @@ const MyAccount = () => {
     );
 
     updateUser({ movieLists: newMovieLists });
-    
   }, [movieListObj]);
 
   return (

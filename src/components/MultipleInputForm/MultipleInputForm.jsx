@@ -3,6 +3,7 @@ import { LoadingAnimation } from "./LoadingAnimation";
 import UserMessage from "../UserMessage";
 import { useState } from "react";
 import { MESSAGE_DURATION } from "../../globalVariables";
+import { FormButton, FormContainer, FormInput, FormMessageStyledContainer, StyledForm } from "./FormStyledComponents";
 
 const MultipleInputForm = ({
   inputs,

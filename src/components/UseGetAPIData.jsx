@@ -15,7 +15,6 @@ export const useGetAPIData = () => {
         isLoading: true,
       });
       const response = await apiRequest(apiParams);
-      console.log("responsedta", response);
       setData(() => response.data);
 
       setSubmitRequest({
