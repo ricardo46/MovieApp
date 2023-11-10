@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
+import {
+  LAPTOP_MOVIES_GRID_GAP,
+  MOBILE_MOVIES_GRID_GAP,
+} from "../../globalVariables";
 
 const MovieLink = styled(NavLink)`
   margin: 0;
@@ -12,12 +16,20 @@ const MoviesList = styled.ul`
   margin: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, 150px);
-  gap: 1rem;
+  gap: ${MOBILE_MOVIES_GRID_GAP};
   justify-content: center;
   /* border: solid red 2px; */
   height: auto;
 
-  max-width: 100vw;
+  width: 100%;
+  @media (min-width: 768px) {
+    gap: ${LAPTOP_MOVIES_GRID_GAP};
+    grid-template-columns: repeat(auto-fit, 170px);
+  }
+  @media (min-width: 1024px) {
+
+    grid-template-columns: repeat(auto-fit, 200px);
+  }
 `;
 
 /* const MoviesListStyledContainer=styled.div`

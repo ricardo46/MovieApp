@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { StyledButton, StyledInput } from "../StyledComponents";
+import { INPUT_BACKGROUND_COLOR, INPUT_MAX_WIDTH } from "../../globalVariables";
 
 const FormButton = styled(StyledButton)`
   background-color: gray;
@@ -7,7 +8,7 @@ const FormButton = styled(StyledButton)`
 
 const FormInput = styled(StyledInput)`
   color: white;
-  background-color: black;
+  background-color: ${INPUT_BACKGROUND_COLOR};
 `;
 
 const FormContainer = styled.div`
@@ -16,13 +17,15 @@ const FormContainer = styled.div`
   gap: 0.5rem;
   justify-content: center;
   width: 100%;
+  max-width: ${INPUT_MAX_WIDTH};
+  /* height: 3rem; */
 `;
 
 const StyledForm = styled.form`
   z-index: 5;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   /* margin-left: 30%; */
   width: 100%;
@@ -31,6 +34,12 @@ const StyledForm = styled.form`
 
 const FormMessageStyledContainer = styled.div`
   padding: 0.2rem 0 0 0;
+  /* position: fixed; */
+  /* translate: 0 2rem; */
+  width: 90%;
+  @media (min-width: 690px) {
+    /* position: absolute; */
+  }
 `;
 
 export {

@@ -36,14 +36,25 @@ const DashBoard = styled.div`
   background-color: ${DASHBOARD_BACKGROUND_COLOR};
 `;
 
+const DashBoardLinksAndUserContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: end;
+  gap: 0.3rem;
+  @media (min-width: 690px) {
+    gap: 0.5rem;
+  }
+`;
+
 const DashBoardLinksContainer = styled.div`
   margin: 0;
   padding: 0;
-  height: 100%;
+  /* height: 100%; */
   display: flex;
-  flex-direction: column;
-  align-items: end;
-  justify-content: start;
+  /* flex-direction: column; */
+  align-items: start;
+  justify-content: end;
   grid-template-columns: repeat(3, auto);
   gap: 0.3rem;
   @media (min-width: 690px) {
@@ -91,10 +102,10 @@ const HeadersContainer = styled.div`
 `;
 
 const OutletContainer = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   box-sizing: border-box;
-  height: 100%;
   justify-content: center;
 `;
 
@@ -107,4 +118,5 @@ export {
   DashBoardMessage,
   HeadersContainer,
   OutletContainer,
+  DashBoardLinksAndUserContainer,
 };

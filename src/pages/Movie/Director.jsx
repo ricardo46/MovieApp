@@ -4,7 +4,6 @@ import {
   SmallImage,
   StyledInfo,
 } from "../../components/StyledComponents";
-import { currentPageIsMovie } from "../../components/PageLayout/PageLayoutUtils";
 
 const Director = ({ director }) => {
   return (

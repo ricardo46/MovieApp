@@ -48,14 +48,14 @@ const MoviePage = () => {
 
   return (
     <>
-      <SectionContainer>
+      {/* <SectionContainer> */}
         <BigMovieContainer>
           <MovieCard showDirector={true} movie={movie} />
         </BigMovieContainer>
-        <MoviesContainer>
+        <SectionContainer>
           <Movies currentMovieId={movie.id} movies={movies} />
-        </MoviesContainer>
-      </SectionContainer>
+        </SectionContainer>
+      {/* </SectionContainer> */}
     </>
   );
 };

@@ -1,5 +1,5 @@
 import { StyledSelect } from "../StyledComponents";
-import { listsIsEmpty } from "../../pages/MyAccount/userListsUtils";
+import { listIsEmpty } from "../../pages/MyAccount/userListsUtils";
 
 const DropDown = ({
   onChangeFunction,
@@ -12,11 +12,11 @@ const DropDown = ({
   return (
     <>
       {console.log("list", list)}
-      <StyledSelect onChange={onChangeFunction} defaultValue="default">
-        {listsIsEmpty(list) && (
+      <StyledSelect onChange={onChangeFunction} defaultValue="default" disabled={listIsEmpty(list)?true:false}>
+        {listIsEmpty(list) && (
           <option value="default">{"No lists Created"}</option>
         )}
-        {!listsIsEmpty(list) && (
+        {!listIsEmpty(list) && (
           <option value="default">{defaultDropDownValue}</option>
         )}
         {list.map((el) => {

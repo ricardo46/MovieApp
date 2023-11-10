@@ -1,5 +1,4 @@
 import { useState } from "react";
-import DropDown from "../../components/DropDown/DropDown";
 import { postMoviesList, postUserList } from "../../utils/apiUtils";
 import {
   getListNamesArray,
@@ -10,6 +9,7 @@ import {
 import MultipleInputForm from "../../components/MultipleInputForm/MultipleInputForm";
 import { getNewListObject, getUpdatedMovieListsIds } from "./userListsUtils";
 import { useUser } from "../../context/UserContext";
+import DropDown from "../../components/dropDown/DropDown";
 
 const UserLists = ({ movieListObj, setMovieListObj }) => {
   const { user, updateUser } = useUser();

@@ -36,8 +36,8 @@ const MovieCard = ({
           <InfoContainer size={size}>
             <StyledInfo> {movie?.title}</StyledInfo>
             <StyledInfo>{movie?.year}</StyledInfo>
-            {/* {currentPageIsMovie(location) && <Director director={movie.director} />} */}
             {showDirector && <Director director={movie.director} />}
+
           </InfoContainer>
         </MovieContainer>
       }

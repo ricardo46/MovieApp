@@ -11,6 +11,7 @@ import {
   OutletContainer,
   DashBoardStyledLink,
   DashBoardLinksContainer,
+  DashBoardLinksAndUserContainer,
 } from "./PageLayoutStyledComponents";
 import { useEffect, useState } from "react";
 import { usePage } from "../../context/PageContext";
@@ -113,9 +114,9 @@ const PageLayout = () => {
               <PageHeader>{APP_NAME}</PageHeader>
               <PageHeader>{subPageName}</PageHeader>
             </HeadersContainer>
-            {/* {!error.status && ( */}
-            <DashBoardLinksContainer>
-              <div>
+            <DashBoardLinksAndUserContainer>
+              {" "}
+              <DashBoardLinksContainer>
                 {!currentPageIsHome(location) && (
                   <DashBoardStyledLink to="/">
                     {HOME_LINK_NAME}
@@ -144,11 +145,11 @@ const PageLayout = () => {
                     {LOGOUT_LINK_NAME}
                   </DashBoardStyledLink>
                 )}
-              </div>
+              </DashBoardLinksContainer>
               <DashBoardMessage>
                 <UserWelcomeMessage apiResponse={apiResponse} />
               </DashBoardMessage>
-            </DashBoardLinksContainer>
+            </DashBoardLinksAndUserContainer>
             {/* // )} */}
           </DashBoard>
           <OutletContainer>

@@ -15,8 +15,8 @@ const getNewListObject = (id, listName) => {
   };
 };
 
-const listsIsEmpty=(list)=>{
+const listIsEmpty=(list)=>{
 return list.length==0
 }
 
-export { getUpdatedMovieListsIds, getNewListObject,listsIsEmpty };
+export { getUpdatedMovieListsIds, getNewListObject,listIsEmpty };

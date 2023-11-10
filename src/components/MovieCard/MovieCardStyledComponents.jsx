@@ -9,12 +9,19 @@ const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
-  padding: 0.8rem;
+  justify-content: center;
+  padding: 0.5rem;
   background-color: ${BACKGROUND_COLOR_ONE};
-
+  justify-content: start;
+  gap: 0.2rem;
   box-sizing: border-box;
   width: 100%;
-  height: 20%;
+  min-height: 58px;
+  @media (min-width: 768px) {
+    min-height: 70px;
+    line-height: 1rem;
+    gap: 0.3rem;
+  }
 `;
 
 const MovieContainer = styled.li`
@@ -24,7 +31,7 @@ const MovieContainer = styled.li`
   border-radius: 5px;
   overflow: hidden;
 
-  height: 281px;
+  /* height: 281px; */
   display: block;
   width: 150px;
 
@@ -33,6 +40,12 @@ const MovieContainer = styled.li`
   align-items: center;
   overflow-y: hidden;
   align-self: center;
+  @media (min-width: 768px) {
+    width: 170px;
+  }
+  @media (min-width: 1024px) {
+    width: 200px;
+  }
 `;
 
 const CardImage = styled.img`
