@@ -51,12 +51,14 @@ const SearchMoviesForm = ({ updateMovies }) => {
           submitButtonName={"Search"}
           onInputChange={onInputChange}
         />
-        {messageIsVisible && moviesData.itemsReceived == 0 && !submitRequest.isLoading && (
-          <UserMessage
-            type={"error"}
-            messageContent={`Movie ${previousInput} not found`}
-          />
-        )}
+        {messageIsVisible &&
+          moviesData.itemsReceived == 0 &&
+          !submitRequest.isLoading && (
+            <UserMessage
+              type={"error"}
+              messageContent={`Movie ${previousInput} not found`}
+            />
+          )}
       </SearchMoviesFormContainer>
     </>
   );
