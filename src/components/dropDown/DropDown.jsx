@@ -12,7 +12,11 @@ const DropDown = ({
   return (
     <>
       {console.log("list", list)}
-      <StyledSelect onChange={onChangeFunction} defaultValue="default" disabled={listIsEmpty(list)?true:false}>
+      <StyledSelect
+        onChange={onChangeFunction}
+        defaultValue="default"
+        disabled={listIsEmpty(list) ? true : false}
+      >
         {listIsEmpty(list) && (
           <option value="default">{"No lists Created"}</option>
         )}

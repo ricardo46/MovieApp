@@ -6,7 +6,6 @@ const movieListsIds = (movieLists) =>
   movieLists.map((list) => ({ movielist_id: list.movielist_id }));
 
 const getNewListObject = (id, listName) => {
-  
   return {
     movielist_id: id,
     id: id,
@@ -15,8 +14,8 @@ const getNewListObject = (id, listName) => {
   };
 };
 
-const listIsEmpty=(list)=>{
-return list.length==0
-}
+const listIsEmpty = (list) => {
+  return list.length == 0;
+};
 
-export { getUpdatedMovieListsIds, getNewListObject,listIsEmpty };
+export { getUpdatedMovieListsIds, getNewListObject, listIsEmpty };

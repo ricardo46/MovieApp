@@ -31,7 +31,6 @@ const MovieContainer = styled.li`
   border-radius: 5px;
   overflow: hidden;
 
-  /* height: 281px; */
   display: block;
   width: 150px;
 

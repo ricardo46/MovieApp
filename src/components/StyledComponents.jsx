@@ -12,7 +12,6 @@ import {
   SMALL_FONT_SIZE,
   SUCCESS_FONT_COLOR,
 } from "../globalVariables";
-// import * as palette from '..globalVariables.js';
 
 const Message = styled.p`
   color: ${FONT_COLOR};
@@ -20,9 +19,7 @@ const Message = styled.p`
   margin: 0;
   white-space: pre-wrap;
   word-wrap: break-word;
-  /* height: 3rem; */
   overflow-wrap: break-word;
-  /* height: 2rem; */
   white-space: normal;
   text-align: center;
 `;
@@ -57,7 +54,6 @@ const StyledButton = styled.button`
 `;
 
 const StyledSelect = styled.select`
-  /* padding: 0 1rem 0 0.5rem; */
   border-radius: 1rem;
 
   height: 2rem;
@@ -65,7 +61,6 @@ const StyledSelect = styled.select`
   font-weight: 400;
   font-size: 0.8rem;
   color: ${FONT_COLOR};
-  /* border: gray 5px solid; */
   text-align: center;
   background-color: gray;
   width: 90%;
@@ -84,7 +79,6 @@ const SectionContainer = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* border: 2px green solid; */
   box-sizing: border-box;
   overflow-x: auto;
   gap: 0.5rem;
@@ -94,7 +88,6 @@ const SuccessMessage = styled(Message)`
   color: ${SUCCESS_FONT_COLOR};
   word-wrap: break-word;
   overflow-wrap: break-word;
-  /* height: 2rem; */
   white-space: normal;
 `;
 
@@ -102,15 +95,12 @@ const ErrorMessage = styled(Message)`
   color: ${ERROR_FONT_COLOR};
   word-wrap: break-word;
   overflow-wrap: break-word;
-  /* height: 2rem; */
   white-space: normal;
 `;
 
 const StyledInfo = styled.label`
   font-size: ${SMALL_FONT_SIZE};
   width: 100%;
-  /* display: flex; */
-  /* justify-content: space-between; */
   color: white;
   text-align: left;
   line-height: 0.9rem;

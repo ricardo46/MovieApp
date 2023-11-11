@@ -32,15 +32,11 @@ import {
 } from "./PageLayoutUtils";
 import UserWelcomeMessage from "./UserWelvomeMessage";
 
-// import { useError } from "../../context/ErrorContext";
-
-
 const PageLayout = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { setUser, auth, setAuth } = useUser();
   const { subPageData, setSubPageData } = usePage();
-  // const { error, setError } = useError();
 
   const [apiResponse, setApiResponse] = useState({ responseReceived: false });
   const subPageName = subPageData.name;
@@ -68,18 +64,9 @@ const PageLayout = () => {
     } catch (err) {
       console.log("User not logged in!");
 
-      // if (responseStatusIsRequestsLimit(err)) {
-
-      //   navigate("/errorPage");
-      // } else {
-      //   console.log("Token not valid", err);
-      //   localStorage.clear();
-      // }
-
       setApiResponse((prev) => ({
         ...prev,
         responseReceived: true,
-        // status: err.status,
       }));
     }
   };

@@ -21,12 +21,8 @@ const Home = () => {
     <>
       <HomePageContainer>
         <SectionContainer>
-          {/* <HomeSearchMoviesFormContainer> */}
           <SearchMoviesForm updateMovies={updateMovies} />
-          {/* </HomeSearchMoviesFormContainer> */}
-          {/* </SectionContainer>
 
-        <SectionContainer> */}
           <Movies movies={movies} displayType={"grid"} />
         </SectionContainer>
       </HomePageContainer>

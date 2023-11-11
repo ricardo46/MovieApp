@@ -18,7 +18,6 @@ const MoviesList = styled.ul`
   grid-template-columns: repeat(auto-fit, 150px);
   gap: ${MOBILE_MOVIES_GRID_GAP};
   justify-content: center;
-  /* border: solid red 2px; */
   height: auto;
 
   width: 100%;
@@ -27,15 +26,8 @@ const MoviesList = styled.ul`
     grid-template-columns: repeat(auto-fit, 170px);
   }
   @media (min-width: 1024px) {
-
     grid-template-columns: repeat(auto-fit, 200px);
   }
 `;
-
-/* const MoviesListStyledContainer=styled.div`
-padding:1rem;
-width: 100vw; 
-box-sizing: border-box; 
-`*/
 
 export { MoviesList, MovieLink };

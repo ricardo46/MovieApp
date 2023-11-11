@@ -1,11 +1,10 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import MultipleInputForm from "../../components/MultipleInputForm/MultipleInputForm";
+import { useGetAPIData } from "../../components/UseGetAPIData";
 import { useUser } from "../../context/UserContext";
 import { logUserInAPI, registerUserInAPI } from "../../utils/apiUtils";
 import { setLocalStorageItem } from "../../utils/localStorageUtils";
-import { useNavigate } from "react-router-dom";
-import { useGetAPIData } from "../../components/UseGetAPIData";
 
 const RegisterForm = () => {
   const [name, setName] = useState("Enter Name");

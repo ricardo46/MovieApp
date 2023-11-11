@@ -46,7 +46,6 @@ const getMoviesDataFromAPI = ([movieName]) => {
 
 const postMoviesList = (name, list) => {
   const authToken = getLocalStorageItem("authToken");
-  // try {
   const response = axios.post(
     "https://x8ki-letl-twmt.n7.xano.io/api:E95hPK0b/movielist",
     {
@@ -61,7 +60,6 @@ const postMoviesList = (name, list) => {
 const postUserList = (user_id, movieLists) => {
   const authToken = getLocalStorageItem("authToken");
   console.log("postUserList", movieLists);
-  // try {
   return axios.patch(
     `https://x8ki-letl-twmt.n7.xano.io/api:E95hPK0b/user/${user_id}`,
 

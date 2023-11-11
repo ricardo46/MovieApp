@@ -5,8 +5,4 @@ const movieExistsInList = (movie, list) => {
   }, false);
 };
 
-// const currentList=(movieList,movieLists)=>{
-
-// }
-
 export { movieExistsInList };

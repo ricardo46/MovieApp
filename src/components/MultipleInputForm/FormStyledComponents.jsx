@@ -18,7 +18,6 @@ const FormContainer = styled.div`
   justify-content: center;
   width: 90%;
   max-width: ${INPUT_MAX_WIDTH};
-  /* height: 3rem; */
 `;
 
 const StyledForm = styled.form`
@@ -27,7 +26,6 @@ const StyledForm = styled.form`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* margin-left: 30%; */
   width: 100%;
   padding: 0.5rem 0 0.5rem 0;
   height: 7rem;
@@ -38,12 +36,8 @@ const FormMessageStyledContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* position: fixed; */
-  /* translate: 0 2rem; */
+
   width: 90%;
-  @media (min-width: 690px) {
-    /* position: absolute; */
-  }
 `;
 
 export {
@@ -53,19 +47,3 @@ export {
   StyledForm,
   FormMessageStyledContainer,
 };
-
-// const OneInputFormButton = styled(StyledButton)`
-//   border-radius: 1rem 0 0 1rem;
-// `;
-
-// const OneInputFormInput = styled(StyledInput)`
-//   border-radius: 0 1rem 1rem 0;
-// `;
-
-// const ButtonAndInputContainer = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   width: 100%;
-//   max-width: 1000px;
-//   padding: 0 1rem 0;
-// `;

@@ -13,8 +13,6 @@ const BigMovieContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
-  /* height: 50%; */
-  /* width: 100%; */
 
   ${MovieContainer} {
     width: 80%;

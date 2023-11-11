@@ -1,6 +1,6 @@
 import { PropagateLoader } from "react-spinners";
 
-const LoadingAnimation = ({submitRequest}) => {
+const LoadingAnimation = ({ submitRequest }) => {
   return (
     <PropagateLoader
       loading={submitRequest.isLoading}
@@ -10,7 +10,5 @@ const LoadingAnimation = ({submitRequest}) => {
     />
   );
 };
-
-
 
 export { LoadingAnimation };

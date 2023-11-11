@@ -31,7 +31,6 @@ const DashBoard = styled.div`
   position: sticky;
   z-index: 10;
   top: 0;
-  /* height: 4rem; */
   overflow-x: hidden;
   background-color: ${DASHBOARD_BACKGROUND_COLOR};
 `;
@@ -50,9 +49,7 @@ const DashBoardLinksAndUserContainer = styled.div`
 const DashBoardLinksContainer = styled.div`
   margin: 0;
   padding: 0;
-  /* height: 100%; */
   display: flex;
-  /* flex-direction: column; */
   align-items: start;
   justify-content: end;
   grid-template-columns: repeat(3, auto);

@@ -1,7 +1,6 @@
 import {
   Route,
   RouterProvider,
-  Routes,
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
@@ -9,16 +8,11 @@ import {
 import { UserProvider } from "./context/UserContext";
 import Register from "./pages/Register/Register";
 
-import PageLayout from "./components/pageLayout/PageLayout";
 import { PageProvider } from "./context/PageContext";
 import MoviePage from "./pages/Movie/Movie";
-// import { ErrorProvider } from "./context/ErrorContext";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import MyAccount from "./pages/MyAccount/MyAccount";
-// import ErrorPage from "./pages/Error/ErrorPage";
-import PrivateRoutes from "./redirectRoutes/PrivateRoutes";
-import PublicRoutes from "./redirectRoutes/PublicRoutes";
 import {
   HOME_PATH,
   LOGIN_PATH,
@@ -26,6 +20,9 @@ import {
   MY_ACCOUNT_PATH,
   REGISTER_PATH,
 } from "./globalVariables";
+import PrivateRoutes from "./redirectRoutes/PrivateRoutes";
+import PublicRoutes from "./redirectRoutes/PublicRoutes";
+import PageLayout from "./components/PageLayout/PageLayout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -50,13 +47,11 @@ const router = createBrowserRouter(
 function App() {
   return (
     <>
-      {/* <ErrorProvider> */}
       <PageProvider>
         <UserProvider>
           <RouterProvider router={router} />
         </UserProvider>
       </PageProvider>
-      {/* </ErrorProvider> */}
     </>
   );
 }

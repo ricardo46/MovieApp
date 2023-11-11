@@ -5,17 +5,14 @@ const validNewListName = (input, lists) => {
   return true;
 };
 
-const listNameExists=(input, lists)=>{
-    return lists.includes(input)
-}
+const listNameExists = (input, lists) => {
+  return lists.includes(input);
+};
 
-const getListNamesArray=(lists)=>{
-return lists.map(list=>list.name)
-}
+const getListNamesArray = (lists) => {
+  return lists.map((list) => list.name);
+};
 
 const stringIsEmpty = (input) => input == "";
 
-export {validNewListName,stringIsEmpty,listNameExists,getListNamesArray}
-
-
-
+export { validNewListName, stringIsEmpty, listNameExists, getListNamesArray };

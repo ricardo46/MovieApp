@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import MovieCard from "../../components/MovieCard/MovieCard";
-import { usePage } from "../../context/PageContext";
-import {
-  BigMovieContainer,
-  MoviesContainer,
-} from "./MoviePageStyledComponents";
-import { SectionContainer } from "../../components/StyledComponents";
 import Movies from "../../components/Movies/Movies";
+import { SectionContainer } from "../../components/StyledComponents";
 import { useGetAPIData } from "../../components/UseGetAPIData";
+import { usePage } from "../../context/PageContext";
 import { getMovieDataFromAPI } from "../../utils/apiUtils";
+import {
+  BigMovieContainer
+} from "./MoviePageStyledComponents";
 
 const MoviePage = () => {
   const navigate = useNavigate();
@@ -48,14 +47,12 @@ const MoviePage = () => {
 
   return (
     <>
-      {/* <SectionContainer> */}
         <BigMovieContainer>
           <MovieCard showDirector={true} movie={movie} />
         </BigMovieContainer>
         <SectionContainer>
           <Movies currentMovieId={movie.id} movies={movies} />
         </SectionContainer>
-      {/* </SectionContainer> */}
     </>
   );
 };

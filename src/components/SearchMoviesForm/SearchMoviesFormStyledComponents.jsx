@@ -12,8 +12,6 @@ import {
 } from "../../globalVariables";
 
 const SearchMoviesFormContainer = styled.section`
-  /* z-index: 5; */
-  /* position: relative; */
   max-width: ${INPUT_MAX_WIDTH};
   width: 100%;
   height: 4.5rem;
@@ -28,7 +26,6 @@ const SearchMoviesFormContainer = styled.section`
     background-color: ${INPUT_BACKGROUND_COLOR};
     &:focus-within {
       box-shadow: 0px 0px 2px ${FONT_COLOR};
-      /* border: none; */
     }
     @media (min-width: 690px) {
     }
@@ -36,7 +33,6 @@ const SearchMoviesFormContainer = styled.section`
   ${FormButton} {
     background-color: ${INPUT_BACKGROUND_COLOR};
     border-radius: 1rem 0 0 1rem;
-    /* width: 20%; */
     border: none;
     padding-left: 0.7rem;
   }

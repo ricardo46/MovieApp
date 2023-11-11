@@ -37,7 +37,6 @@ const MovieCard = ({
             <StyledInfo> {movie?.title}</StyledInfo>
             <StyledInfo>{movie?.year}</StyledInfo>
             {showDirector && <Director director={movie.director} />}
-
           </InfoContainer>
         </MovieContainer>
       }
