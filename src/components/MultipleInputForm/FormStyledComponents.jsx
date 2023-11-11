@@ -16,7 +16,7 @@ const FormContainer = styled.div`
   flex-direction: column;
   gap: 0.5rem;
   justify-content: center;
-  width: 100%;
+  width: 90%;
   max-width: ${INPUT_MAX_WIDTH};
   /* height: 3rem; */
 `;

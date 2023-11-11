@@ -3,6 +3,7 @@ import {
   FormButton,
   FormContainer,
   FormInput,
+  StyledForm,
 } from "../MultipleInputForm/FormStyledComponents";
 import {
   FONT_COLOR,
@@ -19,12 +20,16 @@ const SearchMoviesFormContainer = styled.section`
   ${FormContainer} {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+
     gap: 0;
     border-radius: 1rem;
     background-color: ${INPUT_BACKGROUND_COLOR};
     &:focus-within {
       box-shadow: 0px 0px 2px ${FONT_COLOR};
       /* border: none; */
+    }
+    @media (min-width: 690px) {
     }
   }
   ${FormButton} {
@@ -40,6 +45,13 @@ const SearchMoviesFormContainer = styled.section`
     width: 100%;
     border: none;
     padding-right: 0.7rem;
+  }
+
+  ${StyledForm} {
+    height: 3.5rem;
+    text-align: center;
+    @media (min-width: 690px) {
+    }
   }
 `;
 export { SearchMoviesFormContainer };
