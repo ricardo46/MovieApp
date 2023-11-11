@@ -4,9 +4,19 @@ import {
   StyledForm,
 } from "../../components/MultipleInputForm/FormStyledComponents";
 import { SearchMoviesFormContainer } from "../../components/SearchMoviesForm/SearchMoviesFormStyledComponents";
+import SearchMoviesForm from "../../components/SearchMoviesForm/SearchMoviesForm";
 
-// const HomeSearchMoviesFormContainer = styled.section`
- 
-// `;
+const HomePageContainer = styled.div`
+  z-index: 80;
+  position: relative;
 
-// export { HomeSearchMoviesFormContainer };
+  ${SearchMoviesFormContainer} {
+    @media (min-width: 690px) {
+      width: 50%;
+      position: absolute;
+       top: -4rem;
+    }
+  }
+`;
+
+export { HomePageContainer };

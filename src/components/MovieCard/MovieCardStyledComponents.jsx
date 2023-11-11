@@ -10,7 +10,7 @@ const InfoContainer = styled.div`
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  padding: 0.5rem;
+  padding: 0.35rem;
   background-color: ${BACKGROUND_COLOR_ONE};
   justify-content: start;
   gap: 0.2rem;

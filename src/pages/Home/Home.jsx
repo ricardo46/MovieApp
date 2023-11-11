@@ -4,6 +4,7 @@ import Movies from "../../components/Movies/Movies";
 import SearchMoviesForm from "../../components/SearchMoviesForm/SearchMoviesForm";
 import { HOME_PAGE_NAME } from "../../globalVariables";
 import { SectionContainer } from "../../components/StyledComponents";
+import { HomePageContainer } from "./HomeStyledComponents";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -18,17 +19,17 @@ const Home = () => {
 
   return (
     <>
-      {/* <HomePageContainer> */}
-      <SectionContainer>
-        {/* <HomeSearchMoviesFormContainer> */}
-        <SearchMoviesForm updateMovies={updateMovies} />
-        {/* </HomeSearchMoviesFormContainer> */}
-        {/* </SectionContainer>
+      <HomePageContainer>
+        <SectionContainer>
+          {/* <HomeSearchMoviesFormContainer> */}
+          <SearchMoviesForm updateMovies={updateMovies} />
+          {/* </HomeSearchMoviesFormContainer> */}
+          {/* </SectionContainer>
 
         <SectionContainer> */}
-        <Movies movies={movies} displayType={"grid"} />
-      </SectionContainer>
-      {/* </HomePageContainer> */}
+          <Movies movies={movies} displayType={"grid"} />
+        </SectionContainer>
+      </HomePageContainer>
     </>
   );
 };
