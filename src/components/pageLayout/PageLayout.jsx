@@ -30,21 +30,10 @@ import {
   currentPageIsMyAccount,
   currentPageIsRegister,
 } from "./PageLayoutUtils";
+import UserWelcomeMessage from "./UserWelvomeMessage";
 
 // import { useError } from "../../context/ErrorContext";
 
-const UserWelcomeMessage = ({ apiResponse }) => {
-  const { user } = useUser();
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    user.id
-      ? setMessage(`Welcome: ${user.name}`)
-      : setMessage("Please login or register");
-  }, [user]);
-
-  return <>{apiResponse.responseReceived && message}</>;
-};
 
 const PageLayout = () => {
   const location = useLocation();

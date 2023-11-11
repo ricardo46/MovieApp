@@ -69,6 +69,9 @@ const DashBoardMessage = styled(Message)`
   grid-column-start: span 3;
   justify-self: end;
   font-size: ${DASHBOARD_MOBILE_FONT_SIZE};
+  @media (min-width: 690px) {
+    font-size: ${DASHBOARD_LAPTOP_FONT_SIZE};
+  }
 `;
 
 const PageHeader = styled.h3`
@@ -77,9 +80,13 @@ const PageHeader = styled.h3`
   margin: 0;
   font-size: ${DASHBOARD_MOBILE_FONT_SIZE};
   font-weight: 300;
-
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 6rem;
   @media (min-width: 690px) {
     font-size: ${DASHBOARD_LAPTOP_FONT_SIZE};
+    width: 20rem;
   }
 `;
 

@@ -68,7 +68,7 @@ const StyledSelect = styled.select`
   /* border: gray 5px solid; */
   text-align: center;
   background-color: gray;
-  width: 100%;
+  width: 90%;
   max-width: ${INPUT_MAX_WIDTH};
 `;
 
