@@ -30,8 +30,6 @@ const MultipleInputForm = ({
 
   return (
     <>
-      {submitRequest.error &&
-        console.log("submitRequest.errorMessage", submitRequest.errorMessage)}
       <StyledForm
         onSubmit={(e) => {
           onFormSubmit(e);
@@ -53,7 +51,6 @@ const MultipleInputForm = ({
 
         {messageIsVisible && (
           <FormMessageStyledContainer>
-            
             {submitRequest.error ? (
               <UserMessage
                 type={"error"}

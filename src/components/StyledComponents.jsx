@@ -18,11 +18,11 @@ const Message = styled.p`
   color: ${FONT_COLOR};
   font-size: 0.6rem;
   margin: 0;
-  white-space: pre;
+  white-space: pre-wrap;
   word-wrap: break-word;
   /* height: 3rem; */
   overflow-wrap: break-word;
-  height: 1rem;
+  height: 2rem;
   white-space: normal;
   text-align: center;
 `;
@@ -94,7 +94,7 @@ const SuccessMessage = styled(Message)`
   color: ${SUCCESS_FONT_COLOR};
   word-wrap: break-word;
   overflow-wrap: break-word;
-  height: 1rem;
+  height: 2rem;
   white-space: normal;
 `;
 
@@ -102,7 +102,7 @@ const ErrorMessage = styled(Message)`
   color: ${ERROR_FONT_COLOR};
   word-wrap: break-word;
   overflow-wrap: break-word;
-  height: 1rem;
+  height: 2rem;
   white-space: normal;
 `;
 
