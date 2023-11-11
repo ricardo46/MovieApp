@@ -17,7 +17,8 @@ const Home = () => {
   useEffect(() => {
     setSubPageData(() => ({ name: HOME_PAGE_NAME }));
   }, []);
-
+ 
+  
   return (
     <>
       <HomePageContainer>
