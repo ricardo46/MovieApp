@@ -11,7 +11,7 @@ const DropDown = ({
 }) => {
   return (
     <>
-      {console.log("list", list)}
+      {/* {console.log("list", list)} */}
       <StyledSelect
         onChange={onChangeFunction}
         defaultValue="default"

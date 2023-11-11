@@ -10,7 +10,7 @@ const logUserInAPI = ({ email, password }) => {
 };
 
 const registerUserInAPI = ({ name, email, password }) => {
-  console.log("registerUserInAPI request!!!");
+  // console.log("registerUserInAPI request!!!");
   const response = axios.post(
     "https://x8ki-letl-twmt.n7.xano.io/api:E95hPK0b/auth/signup",
     { name, email, password } //pass: aaa111222
@@ -58,8 +58,9 @@ const postMoviesList = (name, list) => {
 };
 
 const postUserList = (user_id, movieLists) => {
+  // console.log("postUserList", movieLists);
+
   const authToken = getLocalStorageItem("authToken");
-  console.log("postUserList", movieLists);
   return axios.patch(
     `https://x8ki-letl-twmt.n7.xano.io/api:E95hPK0b/user/${user_id}`,
 

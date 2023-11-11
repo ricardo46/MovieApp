@@ -28,7 +28,7 @@ const RegisterForm = () => {
 
   const onRegisterSubmit = (e) => {
     e.preventDefault();
-    console.log("registering");
+    // console.log("registering");
 
     newRegisterFetch({
       apiParams: { name, email, password },
@@ -88,7 +88,6 @@ const RegisterForm = () => {
 
   return (
     <>
-      {console.log("registerSubmitRequest", registerSubmitRequest)}
       <MultipleInputForm
         onFormSubmit={onRegisterSubmit}
         handleClick={handleClick}

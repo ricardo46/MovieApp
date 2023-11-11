@@ -26,7 +26,6 @@ const LoginForm = () => {
   const onLoginSubmit = (e) => {
     e.preventDefault();
     newFetch({ apiParams: {email, password}, apiRequest: logUserInAPI });
-    console.log('but Search')
 
   };
 
@@ -34,7 +33,7 @@ const LoginForm = () => {
     if (userData.user) {
       const authToken = userData.authToken;
       setLocalStorageItem("authToken", authToken);
-      console.log("userData", userData);
+      // console.log("userData", userData);
       const user = userData.user;
       setUser({
         id: user.id,

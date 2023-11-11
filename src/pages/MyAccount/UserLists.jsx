@@ -25,7 +25,7 @@ const UserLists = ({ movieListObj, setMovieListObj }) => {
   const onListChange = (e) => {
     const list = movieLists.find((el) => el.id == e.target.value);
     list ? setMovieListObj(list) : setMovieListObj({});
-    console.log("onListChange list", list);
+    // console.log("onListChange list", list);
   };
 
   const onNewListSubmit = async (e) => {
@@ -80,7 +80,6 @@ const UserLists = ({ movieListObj, setMovieListObj }) => {
           error: true,
           errorMessage: "That list already exists!",
         });
-      console.log("Please enter a list name!");
       stringIsEmpty(inputValue) &&
         setSubmitRequest({
           error: true,

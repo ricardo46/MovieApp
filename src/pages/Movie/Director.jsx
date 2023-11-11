@@ -8,12 +8,14 @@ import {
 const Director = ({ director }) => {
   return (
     <>
-      <SectionTitle>{`Director: ${director?.name}`}</SectionTitle>
-      <ImageAndTextContainer>
-        <SmallImage src={director?.imageURL} />
+      {director && <SectionTitle>{`Director: ${director?.name}`}</SectionTitle>}
+      {director && (
+        <ImageAndTextContainer>
+          <SmallImage src={director?.imageURL} />
 
-        <StyledInfo>{director?.bio}</StyledInfo>
-      </ImageAndTextContainer>
+          <StyledInfo>{director?.bio}</StyledInfo>
+        </ImageAndTextContainer>
+      )}
     </>
   );
 };

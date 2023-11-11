@@ -18,11 +18,8 @@ const SearchMoviesForm = ({ updateMovies }) => {
 
   useEffect(() => {
     updateMovies(moviesData.items);
-    console.log("moviesData.items1", moviesData.itemsReceived);
 
     if (moviesData.itemsReceived == 0) {
-      console.log("moviesData.items2", moviesData.itemsReceived);
-
       setMessageIsVisible(true);
       setTimeout(() => {
         setMessageIsVisible(false);
