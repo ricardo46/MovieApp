@@ -6,6 +6,7 @@ import { HOME_PAGE_NAME } from "../../globalVariables";
 import { SectionContainer } from "../../components/StyledComponents";
 import { HomePageContainer } from "./HomeStyledComponents";
 
+
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const updateMovies = (newMovies) => {
