@@ -30,10 +30,14 @@ const StyledForm = styled.form`
   /* margin-left: 30%; */
   width: 100%;
   padding: 0.5rem 0 0.5rem 0;
+  height: 7rem;
 `;
 
 const FormMessageStyledContainer = styled.div`
   padding: 0.2rem 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* position: fixed; */
   /* translate: 0 2rem; */
   width: 90%;

@@ -15,6 +15,7 @@ const SearchMoviesFormContainer = styled.section`
   /* position: relative; */
   max-width: ${INPUT_MAX_WIDTH};
   width: 100%;
+  /* height: 5rem; */
   ${FormContainer} {
     display: flex;
     flex-direction: row;

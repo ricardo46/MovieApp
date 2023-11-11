@@ -18,14 +18,18 @@ const SearchMoviesForm = ({ updateMovies }) => {
 
   useEffect(() => {
     updateMovies(moviesData.items);
-    if (moviesData.itemsReceived == 0 && !submitRequest.isLoading) {
+    console.log("moviesData.items1", moviesData.itemsReceived);
+
+    if (moviesData.itemsReceived == 0) {
+      console.log("moviesData.items2", moviesData.itemsReceived);
+
       setMessageIsVisible(true);
       setTimeout(() => {
         setMessageIsVisible(false);
       }, MESSAGE_DURATION);
     }
     setInputValue("");
-  }, [submitRequest, moviesData]);
+  }, [moviesData]);
 
   const onSearchSubmit = (e) => {
     e.preventDefault();
@@ -47,7 +51,7 @@ const SearchMoviesForm = ({ updateMovies }) => {
           submitButtonName={"Search"}
           onInputChange={onInputChange}
         />
-        {messageIsVisible && (
+        {messageIsVisible && moviesData.itemsReceived == 0 && !submitRequest.isLoading && (
           <UserMessage
             type={"error"}
             messageContent={`Movie ${previousInput} not found`}
