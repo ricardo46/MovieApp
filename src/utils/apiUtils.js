@@ -78,7 +78,6 @@ const patchListWithMovie = (movielist_id, list) => {
       list,
     }
 
-
     
     // { headers: { Authorization: `Bearer ${authToken}` } }
   );
