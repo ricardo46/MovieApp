@@ -11,6 +11,7 @@ const HomePageContainer = styled.div`
   position: relative;
 
   ${SearchMoviesFormContainer} {
+
     @media (min-width: 690px) {
       width: 50%;
       position: absolute;

@@ -1,5 +1,5 @@
 // GENERAL
-const APP_NAME = "MovLix";
+const APP_NAME = "Movie App";
 
 // PAGE NAMES
 const HOME_PAGE_NAME = "Home";
@@ -51,7 +51,7 @@ const FAVORITE_SYMBOL_COLOR = "#ffffffda";
 const FAVORITE_SYMBOL_BACKGROUND_COLOR = "#4f4f4f6f";
 
 // Messages
-const MESSAGE_DURATION = 44000;
+const MESSAGE_DURATION = 4000;
 
 // MOVIES GRID
 const MOBILE_MOVIES_GRID_GAP = "0.5REM";
